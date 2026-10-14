@@ -6,7 +6,11 @@
 
 .badge {
   font-family: var(--ph-font-mono);
-  letter-spacing: 0.05em;
+  font-size: var(--ph-text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: var(--ph-leading-tight);
+  padding: var(--ph-space-1) var(--ph-space-2);
   text-transform: uppercase;
   border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
 }

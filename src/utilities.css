@@ -25,8 +25,9 @@
 /* terminal label — muted uppercase micro-caption */
 .ph-label {
   font-family: var(--ph-font-mono);
-  font-size: 0.75rem;
+  font-size: var(--ph-text-xs);
   letter-spacing: 0.08em;
+  line-height: var(--ph-leading-tight);
   text-transform: uppercase;
   color: var(--ph-text-muted);
 }

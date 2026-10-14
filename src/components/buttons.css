@@ -5,12 +5,31 @@
 
 .btn {
   font-family: var(--ph-font-mono);
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  min-height: var(--ph-control-height);
+  padding: var(--ph-space-3) var(--ph-space-5);
   transition:
     background-color var(--ph-transition-fast),
     border-color var(--ph-transition-fast),
     box-shadow var(--ph-transition-fast),
-    color var(--ph-transition-fast);
+    color var(--ph-transition-fast),
+    transform var(--ph-transition-fast);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* small keeps its Bootstrap down-shift but stays on the 4px grid */
+.btn-sm {
+  min-height: 2rem;
+  padding: var(--ph-space-2) var(--ph-space-3);
+}
+
+.btn-lg {
+  min-height: 3rem;
+  padding: var(--ph-space-3) var(--ph-space-6);
 }
 
 /* gradient wash — old-terminal sheen on solid variants (bridge owns color) */
@@ -22,10 +41,11 @@
 .btn-info {
   background-image: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.14) 0%,
     rgba(255, 255, 255, 0) 45%,
-    rgba(0, 0, 0, 0.08) 100%
+    rgba(0, 0, 0, 0.1) 100%
   );
+  box-shadow: var(--ph-shadow-1);
 }
 
 /* focus glow — wider, warmer ring than Bootstrap's hairline.

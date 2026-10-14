@@ -28,12 +28,35 @@
   --ph-info: #4a8f8f;
   --ph-info-rgb: 74, 143, 143;
 
-  /* type — mono default for terminal feel */
+  /* spacing — 4px base, non-linear scale (eye can't split ~36 vs 40).
+     Components own padding; layouts own gap; never arbitrary values. */
+  --ph-space-1: 4px;
+  --ph-space-2: 8px;
+  --ph-space-3: 12px;
+  --ph-space-4: 16px;
+  --ph-space-5: 24px;
+  --ph-space-6: 32px;
+  --ph-space-7: 48px;
+  --ph-space-8: 64px;
+
+  /* type — mono default for terminal feel; one modular scale (~1.2) */
   --ph-font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
     Consolas, "Liberation Mono", monospace;
   --ph-font-sans: system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
   --ph-font-size-base: 1rem;
+  --ph-text-xs: 0.75rem;   /* 12px — ph-label, badges */
+  --ph-text-sm: 0.875rem;  /* 14px — captions, table th */
+  --ph-text-lg: 1.125rem;  /* 18px — card titles, h5 */
+  --ph-text-xl: 1.375rem;  /* 22px — h4 */
+  --ph-text-2xl: 1.75rem;  /* 28px — h3 */
+  --ph-text-3xl: 2.25rem;  /* 36px — h2 / display */
+  --ph-leading-tight: 1.25;   /* headings, uppercase chrome */
+  --ph-leading-base: 1.5;     /* body — low-vision / dyslexia floor */
+  --ph-leading-relaxed: 1.65; /* long-form prose */
+
+  /* size — comfortable touch target (WCAG-friendly 44px floor) */
+  --ph-control-height: 2.75rem;
 
   /* shape & depth — 6–10px radii, layered soft shadows */
   --ph-radius-sm: 6px;

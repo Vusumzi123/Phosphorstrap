@@ -9,6 +9,9 @@
   border-color: var(--ph-border);
   border-radius: var(--ph-radius-md);
   color: var(--ph-text);
+  line-height: var(--ph-leading-base);
+  min-height: var(--ph-control-height);
+  padding: var(--ph-space-2) var(--ph-space-3);
   transition:
     border-color var(--ph-transition-fast),
     box-shadow var(--ph-transition-fast),
@@ -24,7 +27,8 @@
 .form-select:focus {
   background-color: var(--ph-surface-raised);
   border-color: var(--ph-primary);
-  box-shadow: 0 0 0 3px rgba(var(--ph-primary-rgb), 0.25);
+  box-shadow: 0 0 0 3px rgba(var(--ph-primary-rgb), 0.28),
+    0 0 12px rgba(var(--ph-primary-rgb), 0.15);
   color: var(--ph-text);
 }
 
@@ -46,8 +50,36 @@
   border-color: var(--ph-primary);
 }
 
-.form-check-input:focus-visible {
+.form-check-input:focus-visible,
+.form-check-input:focus {
+  border-color: var(--ph-primary);
   box-shadow: 0 0 0 3px rgba(var(--ph-primary-rgb), 0.3);
+}
+
+.form-check-input[type="checkbox"]:indeterminate {
+  background-color: var(--ph-primary);
+  border-color: var(--ph-primary);
+}
+
+/* range — Bootstrap hardcodes a blue thumb and focus ring */
+.form-range::-webkit-slider-thumb {
+  background-color: var(--ph-primary);
+}
+
+.form-range::-moz-range-thumb {
+  background-color: var(--ph-primary);
+}
+
+.form-range:focus-visible::-webkit-slider-thumb,
+.form-range:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 1px var(--ph-surface-raised),
+    0 0 0 3px rgba(var(--ph-primary-rgb), 0.3);
+}
+
+.form-range:focus-visible::-moz-range-thumb,
+.form-range:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 1px var(--ph-surface-raised),
+    0 0 0 3px rgba(var(--ph-primary-rgb), 0.3);
 }
 
 /* validation — glow matches the state color, not a hard Bootstrap red edge */

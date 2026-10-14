@@ -5,6 +5,19 @@
 
 .toast {
   border-left: 3px solid var(--ph-primary);
+  overflow: hidden;
+}
+
+.toast .toast-body {
+  line-height: var(--ph-leading-base);
+  padding: var(--ph-space-3) var(--ph-space-4);
+}
+
+.toast .toast-header {
+  font-family: var(--ph-font-mono);
+  font-size: var(--ph-text-xs);
+  letter-spacing: 0.04em;
+  padding: var(--ph-space-2) var(--ph-space-4);
 }
 
 .toast--success { border-left-color: var(--ph-success); }
