@@ -1,0 +1,38 @@
+<header class="showcase__bar">
+  <span class="ph-label showcase__brand">phosphor · angular showcase</span>
+  <div class="btn-group btn-group-sm showcase__themes" role="group" aria-label="Theme switcher">
+    @for (t of theme.themes; track t.id) {
+      <button
+        type="button"
+        class="btn"
+        [class.btn-primary]="theme.current() === t.id"
+        [class.btn-outline-primary]="theme.current() !== t.id"
+        [attr.aria-pressed]="theme.current() === t.id"
+        (click)="theme.set(t.id)">
+        {{ t.label }}
+      </button>
+    }
+  </div>
+</header>
+
+<div class="showcase__body">
+  <nav class="showcase__nav" aria-label="Components">
+    <ul class="nav nav-pills nav-fill">
+      @for (item of nav; track item.path) {
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="item.path"
+            [routerLinkActiveOptions]="{ exact: item.exact === true }"
+            routerLinkActive="active">
+            {{ item.label }}
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <main class="showcase__main">
+    <router-outlet />
+  </main>
+</div>

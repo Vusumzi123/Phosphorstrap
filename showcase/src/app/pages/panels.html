@@ -1,0 +1,31 @@
+<h1 class="mb-1">Panels</h1>
+<p class="text-muted mb-4">
+  Phosphor-only component — the <code>ph-</code> prefix exists for this
+  kind of thing. BEM-lite: <code>.ph-panel</code>,
+  <code>.ph-panel__header</code>, <code>.ph-panel__body</code>,
+  <code>.ph-panel--accent</code>.
+</p>
+
+<div class="ph-panel mb-4">
+  <div class="ph-panel__header">Section title</div>
+  <div class="ph-panel__body">
+    <p>
+      A titled section container with a gradient header wash from
+      <code>--ph-gradient-header</code>. The wash flips with the theme.
+    </p>
+    <button class="btn btn-primary">Inside a panel</button>
+  </div>
+</div>
+
+<div class="ph-panel ph-panel--accent">
+  <div class="ph-panel__header">Accent panel</div>
+  <div class="ph-panel__body">
+    <p>
+      <code>.ph-panel--accent</code> tints the border toward
+      <code>--ph-primary</code> and deepens the shadow.
+    </p>
+    <div class="alert alert-warning mb-0" role="alert">
+      Alerts and panels stack cleanly.
+    </div>
+  </div>
+</div>

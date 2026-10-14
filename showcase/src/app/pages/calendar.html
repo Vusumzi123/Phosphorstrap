@@ -1,0 +1,129 @@
+<h1 class="mb-1">Calendar</h1>
+<p class="text-muted mb-4">
+  <strong>v1.1 · Phosphor-only</strong> — Bootstrap ships no datepicker, so
+  <code>ph-calendar</code> is built from scratch on the token system: a date
+  field that opens a popover with a month grid. BEM-lite:
+  <code>.ph-calendar</code>, <code>__field</code>, <code>__input</code>,
+  <code>__toggle</code>, <code>__popover</code>, <code>__header</code>,
+  <code>__nav</code>, <code>__title</code>, <code>__grid</code>,
+  <code>__day</code>, <code>__footer</code>. Here the open/close, month math,
+  and key handling are Angular signals — the exact JS the CSS expects.
+</p>
+
+<div class="ph-panel mb-4">
+  <div class="ph-panel__header">Date field + popover</div>
+  <div class="ph-panel__body">
+    <app-calendar></app-calendar>
+    <p class="text-muted small mt-3 mb-0">
+      Drive it from the keyboard: click the field or press <kbd>↓</kbd>/<kbd>Enter</kbd>
+      to open, arrows move the day cursor (up/down jump weeks),
+      <kbd>PgUp</kbd>/<kbd>PgDn</kbd> change month, <kbd>Home</kbd>/<kbd>End</kbd>
+      jump to the week edge, <kbd>Enter</kbd>/<kbd>Space</kbd> picks,
+      <kbd>Esc</kbd> closes and returns focus.
+    </p>
+  </div>
+</div>
+
+<div class="ph-panel mb-4">
+  <div class="ph-panel__header">Static month grid (no popover)</div>
+  <div class="ph-panel__body">
+    <div class="ph-calendar is-open" style="max-width: 22rem;">
+      <div class="ph-calendar__popover is-open" style="position: static; display: block;">
+        <div class="ph-calendar__header">
+          <button type="button" class="ph-calendar__nav" aria-label="Previous month">‹</button>
+          <span class="ph-calendar__title">October 2026</span>
+          <button type="button" class="ph-calendar__nav" aria-label="Next month">›</button>
+        </div>
+        <table class="ph-calendar__grid">
+          <thead>
+            <tr>
+              <th scope="col"><abbr title="Sunday">Su</abbr></th>
+              <th scope="col"><abbr title="Monday">Mo</abbr></th>
+              <th scope="col"><abbr title="Tuesday">Tu</abbr></th>
+              <th scope="col"><abbr title="Wednesday">We</abbr></th>
+              <th scope="col"><abbr title="Thursday">Th</abbr></th>
+              <th scope="col"><abbr title="Friday">Fr</abbr></th>
+              <th scope="col"><abbr title="Saturday">Sa</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><button type="button" class="ph-calendar__day ph-calendar__day--outside" tabindex="-1">27</button></td>
+              <td><button type="button" class="ph-calendar__day ph-calendar__day--outside" tabindex="-1">28</button></td>
+              <td><button type="button" class="ph-calendar__day ph-calendar__day--outside" tabindex="-1">29</button></td>
+              <td><button type="button" class="ph-calendar__day ph-calendar__day--outside" tabindex="-1">30</button></td>
+              <td><button type="button" class="ph-calendar__day" tabindex="-1">1</button></td>
+              <td><button type="button" class="ph-calendar__day" tabindex="-1">2</button></td>
+              <td><button type="button" class="ph-calendar__day" tabindex="-1">3</button></td>
+            </tr>
+            <tr>
+              <td><button type="button" class="ph-calendar__day" tabindex="-1">4</button></td>
+              <td><button type="button" class="ph-calendar__day" tabindex="-1">5</button></td>
+              <td><button type="button" class="ph-calendar__day" tabindex="-1">6</button></td>
+              <td><button type="button" class="ph-calendar__day" tabindex="-1">7</button></td>
+              <td><button type="button" class="ph-calendar__day" tabindex="-1">8</button></td>
+              <td><button type="button" class="ph-calendar__day" tabindex="-1">9</button></td>
+              <td><button type="button" class="ph-calendar__day" tabindex="-1">10</button></td>
+            </tr>
+            <tr>
+              <td><button type="button" class="ph-calendar__day" tabindex="-1">11</button></td>
+              <td><button type="button" class="ph-calendar__day" tabindex="-1">12</button></td>
+              <td><button type="button" class="ph-calendar__day ph-calendar__day--today" tabindex="-1" aria-current="date">13</button></td>
+              <td><button type="button" class="ph-calendar__day ph-calendar__day--selected" aria-pressed="true" tabindex="0">14</button></td>
+              <td><button type="button" class="ph-calendar__day" tabindex="-1">15</button></td>
+              <td><button type="button" class="ph-calendar__day" tabindex="-1">16</button></td>
+              <td><button type="button" class="ph-calendar__day" tabindex="-1">17</button></td>
+            </tr>
+            <tr>
+              <td><button type="button" class="ph-calendar__day" tabindex="-1">18</button></td>
+              <td><button type="button" class="ph-calendar__day ph-calendar__day--outside" tabindex="-1">19</button></td>
+              <td><button type="button" class="ph-calendar__day ph-calendar__day--outside" tabindex="-1">20</button></td>
+              <td><button type="button" class="ph-calendar__day ph-calendar__day--outside" tabindex="-1">21</button></td>
+              <td><button type="button" class="ph-calendar__day ph-calendar__day--outside" tabindex="-1">22</button></td>
+              <td><button type="button" class="ph-calendar__day ph-calendar__day--outside" tabindex="-1">23</button></td>
+              <td><button type="button" class="ph-calendar__day ph-calendar__day--outside" tabindex="-1">24</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="ph-calendar__footer">
+          <button type="button" class="btn btn-sm btn-outline-secondary">Today</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary">Clear</button>
+        </div>
+      </div>
+    </div>
+    <p class="text-muted small mt-3 mb-0">
+      States: <code>--outside</code> (adjacent month, muted),
+      <code>--today</code> (amber hairline ring),
+      <code>--selected</code> (solid amber, <code>aria-pressed="true"</code>),
+      <code>--range</code> (between two picks). One day carries
+      <code>tabindex="0"</code>, the rest <code>-1</code> — roving tabindex.
+    </p>
+  </div>
+</div>
+
+<div class="ph-panel mb-4">
+  <div class="ph-panel__header">Markup contract</div>
+  <div class="ph-panel__body">
+    <p>
+      CSS only paints — open/close, month math and the key bindings are
+      your JS (no Bootstrap datepicker involved). Structure:
+    </p>
+    <pre class="mb-0"><code>&lt;div class="ph-calendar"&gt;
+  &lt;div class="ph-calendar__field"&gt;
+    &lt;input class="form-control ph-calendar__input" value="2026-10-13"
+           aria-haspopup="dialog" aria-expanded="false" aria-controls="cal-pop"&gt;
+    &lt;button class="ph-calendar__toggle" aria-expanded="false"
+            aria-controls="cal-pop" aria-label="Open calendar"&gt;▾&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="ph-calendar__popover" id="cal-pop" role="dialog" aria-label="Choose date"&gt;
+    &lt;div class="ph-calendar__header"&gt;
+      &lt;button class="ph-calendar__nav" aria-label="Previous month"&gt;‹&lt;/button&gt;
+      &lt;span class="ph-calendar__title" aria-live="polite"&gt;October 2026&lt;/span&gt;
+      &lt;button class="ph-calendar__nav" aria-label="Next month"&gt;›&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;table class="ph-calendar__grid"&gt; … 7 × &lt;th scope="col"&gt;, day &lt;button class="ph-calendar__day"&gt; …
+    &lt;div class="ph-calendar__footer"&gt; … Today / Clear (.btn .btn-sm) … &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  </div>
+</div>

@@ -12,11 +12,17 @@ Any Bootstrap app becomes a Phosphor app by importing two CSS files and setting
 
 ## Status
 
-Phase 6 — v1.1 calendar: `ph-calendar` (date field + month-grid popover,
-keyboard-accessible, no Bootstrap datepicker) on the token system. Prior:
+Phase 7 — Angular showcase: `showcase/` (Angular 22, modeled on
+My-first-app) — every component + variant on per-component routes, both
+built-in themes + the `green-crt` drop-in, live theme switcher, token
+playground (live `--ph-*` overrides); doubles as the integration test and a
+screenshot target (`cd showcase && npm start`). Prior: Phase 6 — v1.1
+calendar: `ph-calendar` (date field + month-grid popover,
+keyboard-accessible, no Bootstrap datepicker) on the token system; Phase 4
 agent surface (`docs/manifest.json` + `docs/AGENTS.md` + playground index +
-consumer snippets, validated against Angular 22 `My-first-app`) and community
-theming (`themes/TEMPLATE.css`, `docs/THEMES.md`, `docs/gallery.html`).
+consumer snippets, validated against Angular 22 `My-first-app`); Phase 5
+community theming (`themes/TEMPLATE.css`, `docs/THEMES.md`,
+`docs/gallery.html`).
 See [docs/design-plan.md](docs/design-plan.md) for the full plan.
 
 ## Install & consume

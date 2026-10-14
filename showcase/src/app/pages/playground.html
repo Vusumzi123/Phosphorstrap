@@ -1,0 +1,101 @@
+<h1 class="mb-1">Token playground</h1>
+<p class="text-muted mb-4">
+  Every visual decision is a <code>--ph-*</code> custom property — override any
+  subset live on <code>&lt;html&gt;</code> and watch the whole page, Bootstrap
+  included, recolor. Color pickers also set the <code>--ph-*-rgb</code>
+  companion the alpha utilities decompose.
+</p>
+
+<div class="ph-panel mb-4">
+  <div class="ph-panel__header">Color tokens</div>
+  <div class="ph-panel__body">
+    <div class="row g-3">
+      @for (token of colorTokens; track token.name) {
+        <div class="col-6 col-md-4">
+          <label class="form-label ph-label" [for]="token.name">{{ token.label }}</label>
+          <input
+            class="form-control form-control-color w-100"
+            type="color"
+            [id]="token.name"
+            [value]="initialColors[token.name]"
+            (input)="onColor(token.name, $event)">
+        </div>
+      }
+    </div>
+  </div>
+</div>
+
+<div class="ph-panel mb-4">
+  <div class="ph-panel__header">Shape &amp; type</div>
+  <div class="ph-panel__body">
+    <div class="row g-3">
+      <div class="col-md-4">
+        <label class="form-label ph-label" for="radius-sm">radius-sm</label>
+        <input type="range" class="form-range" id="radius-sm" min="0" max="24" step="1"
+          [value]="initialRadiusSm.replace('px','')"
+          (input)="onRadius('--ph-radius-sm', $event)">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label ph-label" for="radius-md">radius-md</label>
+        <input type="range" class="form-range" id="radius-md" min="0" max="24" step="1"
+          [value]="initialRadiusMd.replace('px','')"
+          (input)="onRadius('--ph-radius-md', $event)">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label ph-label" for="radius-lg">radius-lg</label>
+        <input type="range" class="form-range" id="radius-lg" min="0" max="24" step="1"
+          [value]="initialRadiusLg.replace('px','')"
+          (input)="onRadius('--ph-radius-lg', $event)">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label ph-label" for="base-size">font-size-base (px)</label>
+        <input type="range" class="form-range" id="base-size" min="12" max="24" step="1"
+          [value]="initialBaseSize"
+          (input)="onBaseSize($event)">
+      </div>
+    </div>
+    <button type="button" class="btn btn-outline-secondary btn-sm mt-2" (click)="reset()">
+      Reset overrides
+    </button>
+  </div>
+</div>
+
+<div class="ph-panel mb-4">
+  <div class="ph-panel__header">Live sample</div>
+  <div class="ph-panel__body">
+    <p class="mb-2">
+      <button class="btn btn-primary me-2">Primary</button>
+      <button class="btn btn-outline-primary me-2">Outline</button>
+      <span class="badge text-bg-success">success</span>
+    </p>
+    <div class="alert alert-warning mb-2" role="alert">Warning — overrides reach every component.</div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Card</h5>
+        <p class="card-text text-muted mb-0">Surface, border, and ink all read from the tokens.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ph-panel mb-4">
+  <div class="ph-panel__header">Computed values</div>
+  <div class="ph-panel__body">
+    <table class="table table-striped mb-0">
+      <thead>
+        <tr>
+          <th scope="col">Token</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (entry of readout(); track entry.name) {
+          <tr>
+            <td><code>{{ entry.name }}</code></td>
+            <td class="text-muted">{{ entry.value }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<h1 class="mb-1">Community themes</h1>
+<p class="text-muted mb-4">
+  A community theme is <strong>one CSS file</strong> overriding the
+  <code>--ph-*</code> tokens — no component file changes. The shipped example,
+  <code>themes/green-crt.css</code>, is loaded in this app as a real drop-in
+  (after <code>phosphor.css</code> in <code>angular.json</code>) and activated
+  with <code>data-theme="green-crt"</code>.
+</p>
+
+<div class="ph-panel mb-4">
+  <div class="ph-panel__header">Try it</div>
+  <div class="ph-panel__body">
+    <div class="btn-group flex-wrap mb-3" role="group" aria-label="Theme switcher">
+      <button type="button" class="btn" [class.btn-primary]="isActive('dark')" [class.btn-outline-primary]="!isActive('dark')" (click)="activate('dark')">dark (built-in)</button>
+      <button type="button" class="btn" [class.btn-primary]="isActive('light')" [class.btn-outline-primary]="!isActive('light')" (click)="activate('light')">light (built-in)</button>
+      <button type="button" class="btn" [class.btn-primary]="isActive('green-crt')" [class.btn-outline-primary]="!isActive('green-crt')" (click)="activate('green-crt')">green-crt (community)</button>
+    </div>
+    <p class="text-muted small mb-0">
+      The whole app — Bootstrap elements included — recolors live. The header
+      switcher does the same from any route.
+    </p>
+  </div>
+</div>
+
+<div class="ph-panel mb-4">
+  <div class="ph-panel__header">Wiring (this app)</div>
+  <div class="ph-panel__body">
+    <pre class="mb-0"><code>"styles": [
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "node_modules/@vusux/phosphor/dist/phosphor.css",
+  "../themes/green-crt.css"          // import AFTER phosphor.css
+]</code></pre>
+  </div>
+</div>
+
+<div class="ph-panel mb-4">
+  <div class="ph-panel__header">Authoring your own</div>
+  <div class="ph-panel__body">
+    <p>
+      Copy <code>themes/TEMPLATE.css</code>, rename the theme id, change values.
+      Override any subset — anything you omit inherits from
+      <code>tokens.css</code> / <code>dark.css</code>:
+    </p>
+    <pre class="mb-2"><code>[data-theme="my-theme"] {{ '{' }}
+  --ph-bg: #101418;
+  --ph-bg-rgb: 16, 20, 24;
+  --ph-surface: #171c22;
+  --ph-surface-rgb: 23, 28, 34;
+  --ph-text: #d7e0ea;
+  --ph-text-rgb: 215, 224, 234;
+  --ph-primary: #6cb6ff;
+  --ph-primary-rgb: 108, 182, 255;
+  /* … */
+{{ '}' }}</code></pre>
+    <p class="mb-0 text-muted small">
+      Rules: <code>--ph-*</code> tokens only, never <code>--bs-*</code> or
+      component selectors; every color ships an <code>--ph-*-rgb</code>
+      companion. Full guide: <code>docs/THEMES.md</code> · live gallery:
+      <code>docs/gallery.html</code> (static playground).
+    </p>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="ph-calendar" [class.is-open]="open()">
+  <div class="ph-calendar__field">
+    <input
+      #inputEl
+      class="form-control ph-calendar__input"
+      type="text"
+      placeholder="YYYY-MM-DD"
+      [value]="inputValue()"
+      (input)="onInputValue($event)"
+      (change)="onInputChange()"
+      (click)="onInputClick()"
+      (keydown)="onInputKeydown($event)"
+      autocomplete="off"
+      spellcheck="false"
+      aria-haspopup="dialog"
+      [attr.aria-expanded]="open()"
+      [attr.aria-controls]="popoverId">
+    <button
+      type="button"
+      class="ph-calendar__toggle"
+      (click)="toggleCal()"
+      aria-label="Open calendar"
+      [attr.aria-expanded]="open()"
+      [attr.aria-controls]="popoverId">▾</button>
+  </div>
+
+  <div class="ph-calendar__popover" [id]="popoverId" role="dialog" aria-label="Choose date">
+    <div class="ph-calendar__header">
+      <button type="button" class="ph-calendar__nav" (click)="stepMonth(-1)" aria-label="Previous month">‹</button>
+      <span class="ph-calendar__title" aria-live="polite">{{ title() }}</span>
+      <button type="button" class="ph-calendar__nav" (click)="stepMonth(1)" aria-label="Next month">›</button>
+    </div>
+    <table class="ph-calendar__grid">
+      <thead>
+        <tr>
+          <th scope="col"><abbr title="Sunday">Su</abbr></th>
+          <th scope="col"><abbr title="Monday">Mo</abbr></th>
+          <th scope="col"><abbr title="Tuesday">Tu</abbr></th>
+          <th scope="col"><abbr title="Wednesday">We</abbr></th>
+          <th scope="col"><abbr title="Thursday">Th</abbr></th>
+          <th scope="col"><abbr title="Friday">Fr</abbr></th>
+          <th scope="col"><abbr title="Saturday">Sa</abbr></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (week of weeks(); track $index) {
+          <tr>
+            @for (day of week; track day.iso) {
+              <td>
+                <button
+                  type="button"
+                  class="ph-calendar__day"
+                  [class.ph-calendar__day--outside]="day.outside"
+                  [class.ph-calendar__day--today]="day.today"
+                  [class.ph-calendar__day--selected]="day.selected"
+                  [attr.data-iso]="day.iso"
+                  [attr.tabindex]="isTabbable(day) ? 0 : -1"
+                  [attr.aria-pressed]="day.selected ? 'true' : null"
+                  [attr.aria-current]="day.today ? 'date' : null"
+                  (click)="pick(day.date)"
+                  (keydown)="onDayKey($event, day)">
+                  {{ day.date.getDate() }}
+                </button>
+              </td>
+            }
+          </tr>
+        }
+      </tbody>
+    </table>
+    <div class="ph-calendar__footer">
+      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="pickToday()">Today</button>
+      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="clear()">Clear</button>
+    </div>
+  </div>
+</div>

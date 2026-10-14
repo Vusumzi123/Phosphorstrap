@@ -1,0 +1,35 @@
+<h1 class="mb-1">Navs / tabs</h1>
+<p class="text-muted mb-4">
+  Bootstrap <code>.nav-tabs</code> / <code>.nav-pills</code> markup,
+  unchanged. Active tab gets the panel gradient wash; pills active
+  state takes dark ink on amber. Mono type throughout.
+</p>
+
+<ul class="nav nav-tabs mb-3" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-console" type="button" role="tab">console</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-tokens" type="button" role="tab">tokens</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-themes" type="button" role="tab">themes</button>
+  </li>
+</ul>
+<div class="tab-content mb-4">
+  <div class="tab-pane fade show active" id="tab-console" role="tabpanel">
+    <div class="alert alert-info mb-0" role="alert">stdout — build completed with exit code 0.</div>
+  </div>
+  <div class="tab-pane fade" id="tab-tokens" role="tabpanel">
+    <div class="alert alert-info mb-0" role="alert">every visual decision is a <code>--ph-*</code> custom property.</div>
+  </div>
+  <div class="tab-pane fade" id="tab-themes" role="tabpanel">
+    <div class="alert alert-info mb-0" role="alert">flip <code>data-theme</code> — tokens and bridge follow.</div>
+  </div>
+</div>
+
+<ul class="nav nav-pills">
+  <li class="nav-item"><a class="nav-link active" href="#">running</a></li>
+  <li class="nav-item"><a class="nav-link" href="#">queued</a></li>
+  <li class="nav-item"><a class="nav-link" href="#">stopped</a></li>
+</ul>
