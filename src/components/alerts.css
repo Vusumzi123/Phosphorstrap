@@ -1,0 +1,23 @@
+/* Phosphor — alerts
+   Palette comes from the bridge (--bs-*-bg-subtle / border-subtle);
+   this file adds the warm 1px edge, terminal radius, and soft depth. */
+
+.alert {
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--bs-alert-border-color, var(--ph-border));
+  border-radius: var(--ph-radius-md);
+  box-shadow: var(--ph-shadow-1);
+  font-family: var(--ph-font-mono);
+  transition: box-shadow var(--ph-transition-fast);
+}
+
+.alert:hover {
+  box-shadow: var(--ph-shadow-2);
+}
+
+/* link inside an alert lands on body-text ink (bridge maps it) —
+   keep it underlined so it still reads as interactive */
+.alert a {
+  text-decoration: underline;
+}

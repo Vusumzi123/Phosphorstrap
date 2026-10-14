@@ -52,13 +52,19 @@ async function main() {
 
   // umbrella bundle: tokens + themes + bridge + components + utilities
   const parts = [];
-  for (const rel of [...bundleOrder, ...(await componentFiles())]) {
+  const components = await componentFiles();
+  for (const rel of [...bundleOrder, ...components]) {
     parts.push(await readSrc(rel));
   }
   if (existsSync(path.join(srcDir, "utilities.css"))) {
     parts.push(await readSrc("utilities.css"));
   }
   await writeDist("phosphor.css", await minify(parts.join("\n")));
+
+  // per-component entries for the package exports map
+  for (const rel of components) {
+    await writeDist(rel, await readSrc(rel));
+  }
 
   console.log("done.");
 }

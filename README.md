@@ -12,7 +12,8 @@ Any Bootstrap app becomes a Phosphor app by importing two CSS files and setting
 
 ## Status
 
-Phase 1 — skeleton, tokens, themes, Bootstrap bridge. See
+Phase 3 — component pass 2: modals, toasts, tables, badges, navs,
+utilities; umbrella `phosphor.css`. See
 [docs/design-plan.md](docs/design-plan.md) for the full plan.
 
 ## Build
@@ -26,4 +27,5 @@ npm run build   # node scripts/build.mjs → dist/
 - `src/tokens.css` — all `--ph-*` design tokens (light default)
 - `src/themes/dark.css` — `[data-theme="dark"]` overrides
 - `src/bootstrap-bridge.css` — `--bs-*` → `--ph-*` mapping
-- `docs/index.html` — bare-Bootstrap acceptance page
+- `src/components/*.css` — one module per component (buttons, forms, alerts, cards, panels)
+- `docs/*.html` — static playground, one page per component (`npx serve docs`)

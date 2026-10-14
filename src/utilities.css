@@ -1,0 +1,41 @@
+/* Phosphor — utilities
+   A small Phosphor-only helper set (glow, sepia surfaces, CRT details).
+   Bootstrap utilities do the generic spacing/flex/color work; these
+   carry the terminal identity. All read from --ph-* tokens, so every
+   helper flips with the theme. */
+
+/* phosphor-amber text glow (CRT emission) */
+.ph-glow {
+  text-shadow: 0 0 10px rgba(var(--ph-primary-rgb), 0.5);
+}
+
+.ph-glow-soft {
+  text-shadow: 0 0 4px rgba(var(--ph-primary-rgb), 0.35);
+}
+
+/* sepia surfaces — token-aliased backgrounds for local panels */
+.ph-surface {
+  background-color: var(--ph-surface);
+}
+
+.ph-surface-raised {
+  background-color: var(--ph-surface-raised);
+}
+
+/* terminal label — muted uppercase micro-caption */
+.ph-label {
+  font-family: var(--ph-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ph-text-muted);
+}
+
+/* subtle scanline wash for decorative headers */
+.ph-scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0 2px,
+    rgba(var(--ph-text-rgb), 0.03) 2px 4px
+  );
+}

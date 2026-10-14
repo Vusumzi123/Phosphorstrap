@@ -8,7 +8,17 @@
     ".": "./dist/phosphor.css",
     "./tokens": "./dist/tokens.css",
     "./dark": "./dist/themes/dark.css",
-    "./bootstrap-bridge": "./dist/bootstrap-bridge.css"
+    "./bootstrap-bridge": "./dist/bootstrap-bridge.css",
+    "./buttons": "./dist/components/buttons.css",
+    "./forms": "./dist/components/forms.css",
+    "./alerts": "./dist/components/alerts.css",
+    "./cards": "./dist/components/cards.css",
+    "./panels": "./dist/components/panels.css",
+    "./modals": "./dist/components/modals.css",
+    "./toasts": "./dist/components/toasts.css",
+    "./tables": "./dist/components/tables.css",
+    "./badges": "./dist/components/badges.css",
+    "./navs": "./dist/components/navs.css"
   },
   "files": [
     "dist"

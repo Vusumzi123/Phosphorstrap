@@ -1,0 +1,64 @@
+/* Phosphor — forms (text, textarea, checkbox, radio, select)
+   The bridge maps palette vars; this file adds surface treatment,
+   the amber focus glow, placeholder ink, and checked-state polish.
+   Bootstrap markup is used as-is — no renamed classes. */
+
+.form-control,
+.form-select {
+  background-color: var(--ph-surface-raised);
+  border-color: var(--ph-border);
+  border-radius: var(--ph-radius-md);
+  color: var(--ph-text);
+  transition:
+    border-color var(--ph-transition-fast),
+    box-shadow var(--ph-transition-fast),
+    background-color var(--ph-transition-fast);
+}
+
+.form-control::placeholder {
+  color: var(--ph-text-muted);
+  opacity: 1;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--ph-surface-raised);
+  border-color: var(--ph-primary);
+  box-shadow: 0 0 0 3px rgba(var(--ph-primary-rgb), 0.25);
+  color: var(--ph-text);
+}
+
+/* select arrow: light default is Bootstrap's, dark arrow is the bridge's
+   ([data-theme="dark"] .form-select --bs-form-select-bg-img) */
+
+/* check / radio — amber ink on warm raised surface */
+.form-check-input {
+  background-color: var(--ph-surface-raised);
+  border-color: var(--ph-text-muted);
+  transition:
+    background-color var(--ph-transition-fast),
+    border-color var(--ph-transition-fast),
+    box-shadow var(--ph-transition-fast);
+}
+
+.form-check-input:checked {
+  background-color: var(--ph-primary);
+  border-color: var(--ph-primary);
+}
+
+.form-check-input:focus-visible {
+  box-shadow: 0 0 0 3px rgba(var(--ph-primary-rgb), 0.3);
+}
+
+/* validation — glow matches the state color, not a hard Bootstrap red edge */
+.form-control.is-valid:focus,
+.form-select.is-valid:focus {
+  border-color: var(--ph-success);
+  box-shadow: 0 0 0 3px rgba(var(--ph-success-rgb), 0.25);
+}
+
+.form-control.is-invalid:focus,
+.form-select.is-invalid:focus {
+  border-color: var(--ph-danger);
+  box-shadow: 0 0 0 3px rgba(var(--ph-danger-rgb), 0.25);
+}

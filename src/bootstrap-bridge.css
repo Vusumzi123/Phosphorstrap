@@ -153,3 +153,56 @@
 [data-theme="dark"] .form-select {
   --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23e8dcc8' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
 }
+
+/* --- modal & toast (Bootstrap JS components) -----------------------
+   Bootstrap defines these vars on the component base selectors; re-map
+   there so the JS behaviors (toggle, fade, stack) work untouched and
+   every surface flips with the token layer. */
+
+.modal {
+  --bs-modal-color: var(--ph-text);
+  --bs-modal-bg: var(--ph-surface);
+  --bs-modal-border-color: var(--ph-border);
+  --bs-modal-border-width: 1px;
+  --bs-modal-border-radius: var(--ph-radius-lg);
+  --bs-modal-box-shadow: var(--ph-shadow-3);
+  --bs-modal-header-border-color: var(--ph-border);
+  --bs-modal-footer-border-color: var(--ph-border);
+}
+
+.modal-backdrop {
+  --bs-backdrop-bg: var(--ph-text);
+  --bs-backdrop-opacity: 0.45;
+}
+
+.toast {
+  --bs-toast-color: var(--ph-text);
+  --bs-toast-bg: var(--ph-surface-raised);
+  --bs-toast-border-color: var(--ph-border);
+  --bs-toast-border-radius: var(--ph-radius-md);
+  --bs-toast-box-shadow: var(--ph-shadow-3);
+  --bs-toast-header-color: var(--ph-text-muted);
+  --bs-toast-header-bg: var(--ph-surface);
+  --bs-toast-header-border-color: var(--ph-border);
+}
+
+/* Bootstrap inverts .btn-close under [data-bs-theme="dark"]; Phosphor
+   flips via data-theme, so apply the same filter here. */
+[data-theme="dark"] .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* --- badges --------------------------------------------------------
+   White on amber/yellow fails contrast; flip ink on the light-ink
+   variants. Red/green keep white. */
+
+.badge {
+  --bs-badge-border-radius: var(--ph-radius-sm);
+}
+
+/* --- navs ----------------------------------------------------------
+   Pills active state: dark ink on amber instead of Bootstrap white. */
+
+.nav-pills {
+  --bs-nav-pills-link-active-color: #1f1a12;
+}

@@ -1,0 +1,13 @@
+/* Phosphor — toasts
+   Bootstrap JS owns show/auto-hide; the bridge themes .toast's
+   --bs-toast-* vars (surface, border, shadow, header). This file adds
+   the amber status edge so a toast reads as a terminal notification. */
+
+.toast {
+  border-left: 3px solid var(--ph-primary);
+}
+
+.toast--success { border-left-color: var(--ph-success); }
+.toast--danger  { border-left-color: var(--ph-danger); }
+.toast--warning { border-left-color: var(--ph-warning); }
+.toast--info    { border-left-color: var(--ph-info); }

@@ -1,0 +1,35 @@
+/* Phosphor — cards
+   Bridge sets --bs-card-bg / border color; this file adds the raised
+   surface depth, terminal radius, and a soft hover lift. */
+
+.card {
+  border-radius: var(--ph-radius-lg);
+  box-shadow: var(--ph-shadow-2);
+  color: var(--ph-text);
+  transition:
+    box-shadow var(--ph-transition-base),
+    transform var(--ph-transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--ph-shadow-3);
+}
+
+.card-header,
+.card-footer {
+  background-color: var(--ph-surface);
+  border-color: var(--ph-border);
+}
+
+.card-header {
+  font-family: var(--ph-font-mono);
+  letter-spacing: 0.02em;
+}
+
+.card-title {
+  color: var(--ph-text);
+}
+
+.card-text {
+  color: var(--ph-text-muted);
+}

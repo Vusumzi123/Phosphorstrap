@@ -1,0 +1,28 @@
+/* Phosphor — navs (tabs, pills, links)
+   Colors already resolve through the bridge: link hover → --ph-primary,
+   borders → --ph-border, active-tab bg → body surface, pills active bg
+   → --ph-primary with dark ink. This file adds the terminal treatment:
+   mono links, gradient active tab echoing .ph-panel__header, soft
+   surface wash on tab hover. */
+
+.nav-link {
+  transition:
+    color var(--ph-transition-fast),
+    background-color var(--ph-transition-fast);
+}
+
+.nav-tabs .nav-link,
+.nav-pills .nav-link,
+.nav-underline .nav-link {
+  font-family: var(--ph-font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+.nav-tabs .nav-link:hover {
+  background-color: var(--ph-surface-raised);
+}
+
+.nav-tabs .nav-link.active {
+  background-image: var(--ph-gradient-header);
+}
