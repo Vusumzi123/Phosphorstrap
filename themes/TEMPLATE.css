@@ -1,8 +1,8 @@
-/* Phosphor — community theme TEMPLATE
+/* Phosphorstrap — community theme TEMPLATE
    One-file drop-in. Copy, rename the theme id, change values, ship.
-   Load AFTER phosphor.css and activate with data-theme="<id>" on <html>:
+   Load AFTER phosphorstrap.css and activate with data-theme="<id>" on <html>:
 
-     <link rel="stylesheet" href="phosphor.css">
+     <link rel="stylesheet" href="phosphorstrap.css">
      <link rel="stylesheet" href="my-theme.css">
      <html data-theme="my-theme">
 

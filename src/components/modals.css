@@ -1,4 +1,4 @@
-/* Phosphor — modals
+/* Phosphorstrap — modals
    Bootstrap JS owns show/hide/backdrop; the bridge themes .modal's
    --bs-modal-* vars (surface, border, radius, shadow, backdrop).
    This file adds what the bridge can't reach: the gradient title bar

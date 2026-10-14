@@ -1,4 +1,4 @@
-/* Phosphor — panels (Phosphor-only component)
+/* Phosphorstrap — panels (Phosphorstrap-only component)
    The one component Bootstrap has no counterpart for, so it carries the
    full ph- BEM-lite name: .ph-panel, .ph-panel__header, .ph-panel--accent.
    Header wash comes from the --ph-gradient-header token — it flips with

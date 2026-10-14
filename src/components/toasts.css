@@ -1,4 +1,4 @@
-/* Phosphor — toasts
+/* Phosphorstrap — toasts
    Bootstrap JS owns show/auto-hide; the bridge themes .toast's
    --bs-toast-* vars (surface, border, shadow, header). This file adds
    the amber status edge so a toast reads as a terminal notification. */

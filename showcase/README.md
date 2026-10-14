@@ -1,15 +1,15 @@
-# Phosphor — Angular showcase
+# Phosphorstrap — Angular showcase
 
-Angular 22 integration app for [`@vusux/phosphor`](../package.json) — every
+Angular 22 integration app for [`@vusux/phosphorstrap`](../package.json) — every
 component and variant, both built-in themes plus the `green-crt` community
 drop-in, a live theme switcher, per-component routes, and a token playground
-(live `--ph-*` overrides). Doubles as the Phosphor integration test and a
+(live `--ph-*` overrides). Doubles as the Phosphorstrap integration test and a
 screenshot target.
 
 ## Run
 
 ```sh
-npm install          # @vusux/phosphor is a file:.. symlink to the repo root
+npm install          # @vusux/phosphorstrap is a file:.. symlink to the repo root
 npm start            # ng serve → http://localhost:4200
 npm run build        # production build → dist/showcase/browser
 ```
@@ -29,7 +29,7 @@ npm run build        # production build → dist/showcase/browser
 ## Theme switching
 
 The header switcher sets `data-theme` on `<html>` — `dark`, `light`
-(built-in), `green-crt` (community drop-in loaded after `phosphor.css`).
+(built-in), `green-crt` (community drop-in loaded after `phosphorstrap.css`).
 No second stylesheet, no JS theming: tokens and the Bootstrap bridge follow
 the attribute.
 
@@ -38,7 +38,7 @@ the attribute.
 ```json
 "styles": [
   "node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "node_modules/@vusux/phosphor/dist/phosphor.css",
+  "node_modules/@vusux/phosphorstrap/dist/phosphorstrap.css",
   "../themes/green-crt.css",
   "src/styles.css"
 ],
@@ -47,5 +47,5 @@ the attribute.
 ]
 ```
 
-Bootstrap JS powers modal/toast/tab `data-bs-*` attributes; Phosphor only
+Bootstrap JS powers modal/toast/tab `data-bs-*` attributes; Phosphorstrap only
 themes them.

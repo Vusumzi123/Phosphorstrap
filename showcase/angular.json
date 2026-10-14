@@ -51,7 +51,7 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/@vusux/phosphor/dist/phosphor.css",
+              "node_modules/@vusux/phosphorstrap/dist/phosphorstrap.css",
               "../themes/green-crt.css",
               "src/styles.css"
             ],

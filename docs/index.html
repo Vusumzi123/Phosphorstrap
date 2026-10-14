@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Phosphor — playground</title>
+  <title>Phosphorstrap — playground</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../dist/phosphor.css">
+  <link rel="stylesheet" href="../dist/phosphorstrap.css">
 </head>
 <body>
   <div class="container py-5" style="max-width: 48rem;">
     <nav class="mb-4 d-flex flex-wrap gap-2 align-items-center">
-      <span class="ph-label me-2">phosphor playground</span>
+      <span class="ph-label me-2">phosphorstrap playground</span>
       <button class="btn btn-sm btn-secondary ms-auto"
         onclick="document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'">
         Toggle theme
       </button>
     </nav>
 
-    <h1 class="mb-1">Phosphor</h1>
+    <h1 class="mb-1">Phosphorstrap</h1>
     <p class="lead text-muted mb-4">
       Retro-terminal design language — a theme + token layer over Bootstrap 5.3.
       One page per component; inspect markup and CSS in both themes.
@@ -26,9 +26,9 @@
     <div class="ph-panel mb-4">
       <header class="ph-panel__header">Quick start</header>
       <div class="ph-panel__body">
-        <p>Two imports, one attribute — any Bootstrap page becomes a Phosphor page:</p>
+        <p>Two imports, one attribute — any Bootstrap page becomes a Phosphorstrap page:</p>
         <pre class="mb-0"><code>&lt;link rel="stylesheet" href="bootstrap.min.css"&gt;
-&lt;link rel="stylesheet" href="phosphor.css"&gt;
+&lt;link rel="stylesheet" href="phosphorstrap.css"&gt;
 &lt;html data-theme="dark"&gt;  &lt;!-- or "light" --&gt;</code></pre>
       </div>
     </div>
@@ -83,7 +83,7 @@
 
     <p class="text-muted small mb-0">
       Badge colors: <span class="badge text-bg-primary">Bootstrap-styled</span>
-      <span class="badge text-bg-warning">Phosphor-only</span> ·
+      <span class="badge text-bg-warning">Phosphorstrap-only</span> ·
       serve with <code>npx serve docs</code>
     </p>
   </div>

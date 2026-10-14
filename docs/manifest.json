@@ -1,17 +1,17 @@
 {
-  "name": "@vusux/phosphor",
+  "name": "@vusux/phosphorstrap",
   "version": "0.1.0",
   "description": "Retro-terminal design language — a theme + token layer over Bootstrap 5.3",
   "bootstrap": {
     "peer": "^5.3.0",
-    "note": "Import Bootstrap 5.3 CSS BEFORE Phosphor. Bootstrap provides the grid, utilities, and all JS behaviors (modal, toast, dropdown, collapse). Phosphor never renames Bootstrap classes."
+    "note": "Import Bootstrap 5.3 CSS BEFORE Phosphorstrap. Bootstrap provides the grid, utilities, and all JS behaviors (modal, toast, dropdown, collapse). Phosphorstrap never renames Bootstrap classes."
   },
   "install": {
-    "css": "import \"bootstrap/dist/css/bootstrap.min.css\";\nimport \"@vusux/phosphor\";",
+    "css": "import \"bootstrap/dist/css/bootstrap.min.css\";\nimport \"@vusux/phosphorstrap\";",
     "theme": "Set data-theme=\"dark\" or data-theme=\"light\" on <html>. Default is light; no attribute also renders light."
   },
   "exports": {
-    ".": "./dist/phosphor.css",
+    ".": "./dist/phosphorstrap.css",
     "./tokens": "./dist/tokens.css",
     "./dark": "./dist/themes/dark.css",
     "./bootstrap-bridge": "./dist/bootstrap-bridge.css",
@@ -29,7 +29,7 @@
   },
   "naming": {
     "pattern": "BEM-lite: .ph-block, .ph-block__element, .ph-block--modifier",
-    "rule": "ph- prefix ONLY for Phosphor-only components (.ph-panel, .ph-glow, …). Bootstrap classes (.btn, .card, .alert, .modal, .table, …) are styled in place and never renamed, extended, or prefixed."
+    "rule": "ph- prefix ONLY for Phosphorstrap-only components (.ph-panel, .ph-glow, …). Bootstrap classes (.btn, .card, .alert, .modal, .table, …) are styled in place and never renamed, extended, or prefixed."
   },
   "tokens": {
     "color": [
@@ -90,19 +90,19 @@
     {
       "id": "buttons",
       "page": "docs/buttons.html",
-      "export": "@vusux/phosphor/buttons",
+      "export": "@vusux/phosphorstrap/buttons",
       "bootstrapMarkup": "Required — use Bootstrap .btn markup unchanged",
       "bootstrapJs": false,
       "classes": [".btn", ".btn-primary", ".btn-secondary", ".btn-success", ".btn-danger", ".btn-warning", ".btn-info", ".btn-outline-*", ".btn-sm", ".btn-lg"],
       "phosphorAdds": "gradient wash on solid variants, 600-weight mono type, 44px touch target, press-down micro-interaction, warm focus glow",
       "tokens": ["--ph-font-mono", "--ph-primary-rgb", "--ph-transition-fast", "--ph-control-height", "--ph-space-3", "--ph-space-5"],
       "do": "<button class=\"btn btn-primary\">Save</button>",
-      "dont": "<button class=\"ph-btn\">Save</button>  // there is no .ph-btn — Phosphor styles .btn in place"
+      "dont": "<button class=\"ph-btn\">Save</button>  // there is no .ph-btn — Phosphorstrap styles .btn in place"
     },
     {
       "id": "forms",
       "page": "docs/forms.html",
-      "export": "@vusux/phosphor/forms",
+      "export": "@vusux/phosphorstrap/forms",
       "bootstrapMarkup": "Required — Bootstrap .form-control / .form-select / .form-check markup",
       "bootstrapJs": false,
       "classes": [".form-control", ".form-select", ".form-check-input", ".is-valid", ".is-invalid"],
@@ -114,7 +114,7 @@
     {
       "id": "alerts",
       "page": "docs/alerts.html",
-      "export": "@vusux/phosphor/alerts",
+      "export": "@vusux/phosphorstrap/alerts",
       "bootstrapMarkup": "Required — Bootstrap .alert markup",
       "bootstrapJs": false,
       "classes": [".alert", ".alert-primary", ".alert-secondary", ".alert-success", ".alert-danger", ".alert-warning", ".alert-info"],
@@ -126,7 +126,7 @@
     {
       "id": "cards",
       "page": "docs/cards.html",
-      "export": "@vusux/phosphor/cards",
+      "export": "@vusux/phosphorstrap/cards",
       "bootstrapMarkup": "Required — Bootstrap .card markup",
       "bootstrapJs": false,
       "classes": [".card", ".card-body", ".card-header", ".card-footer", ".card-title", ".card-text"],
@@ -138,8 +138,8 @@
     {
       "id": "panels",
       "page": "docs/panels.html",
-      "export": "@vusux/phosphor/panels",
-      "bootstrapMarkup": "Not required — Phosphor-only component; Bootstrap grid may wrap it",
+      "export": "@vusux/phosphorstrap/panels",
+      "bootstrapMarkup": "Not required — Phosphorstrap-only component; Bootstrap grid may wrap it",
       "bootstrapJs": false,
       "phosphorOnly": true,
       "classes": [".ph-panel", ".ph-panel__header", ".ph-panel__body", ".ph-panel--accent"],
@@ -151,23 +151,23 @@
     {
       "id": "modals",
       "page": "docs/modals.html",
-      "export": "@vusux/phosphor/modals",
+      "export": "@vusux/phosphorstrap/modals",
       "bootstrapMarkup": "Required — Bootstrap .modal markup + Bootstrap JS (data-bs-toggle / Modal API)",
       "bootstrapJs": true,
       "classes": [".modal", ".modal-dialog", ".modal-content", ".modal-header", ".modal-title", ".modal-body", ".modal-footer"],
       "phosphorAdds": "gradient title bar, uppercase mono title on the type scale, 24px body padding, spaced footer actions; surface/backdrop themed via bridge vars",
       "tokens": ["--ph-gradient-header", "--ph-font-mono", "--ph-text-lg", "--ph-space-5"],
-      "do": "Bootstrap modal markup + JS; Phosphor themes it — do not hand-roll overlays",
+      "do": "Bootstrap modal markup + JS; Phosphorstrap themes it — do not hand-roll overlays",
       "dont": "<div class=\"ph-modal\">…</div>  // never reimplement Bootstrap JS components"
     },
     {
       "id": "toasts",
       "page": "docs/toasts.html",
-      "export": "@vusux/phosphor/toasts",
+      "export": "@vusux/phosphorstrap/toasts",
       "bootstrapMarkup": "Required — Bootstrap .toast markup + Bootstrap JS (Toast API)",
       "bootstrapJs": true,
       "classes": [".toast", ".toast--success", ".toast--danger", ".toast--warning", ".toast--info"],
-      "phosphorAdds": "amber left status edge; the -- modifiers are the only Phosphor-owned classes here",
+      "phosphorAdds": "amber left status edge; the -- modifiers are the only Phosphorstrap-owned classes here",
       "tokens": ["--ph-primary", "--ph-success", "--ph-danger", "--ph-warning", "--ph-info"],
       "do": "<div class=\"toast toast--success\" role=\"alert\">…</div>",
       "dont": "<div class=\"toast ph-toast--success\">…</div>  // modifier is .toast--success (one dash pair)"
@@ -175,7 +175,7 @@
     {
       "id": "tables",
       "page": "docs/tables.html",
-      "export": "@vusux/phosphor/tables",
+      "export": "@vusux/phosphorstrap/tables",
       "bootstrapMarkup": "Required — Bootstrap .table markup",
       "bootstrapJs": false,
       "classes": [".table", ".table-striped", ".table-hover", ".table-bordered"],
@@ -187,7 +187,7 @@
     {
       "id": "badges",
       "page": "docs/badges.html",
-      "export": "@vusux/phosphor/badges",
+      "export": "@vusux/phosphorstrap/badges",
       "bootstrapMarkup": "Required — Bootstrap .badge markup",
       "bootstrapJs": false,
       "classes": [".badge", ".text-bg-primary", ".text-bg-warning", ".text-bg-info", ".bg-*"],
@@ -199,7 +199,7 @@
     {
       "id": "navs",
       "page": "docs/navs.html",
-      "export": "@vusux/phosphor/navs",
+      "export": "@vusux/phosphorstrap/navs",
       "bootstrapMarkup": "Required — Bootstrap .nav / .nav-tabs / .nav-pills markup",
       "bootstrapJs": false,
       "classes": [".nav", ".nav-tabs", ".nav-pills", ".nav-underline", ".nav-link"],
@@ -211,8 +211,8 @@
     {
       "id": "calendar",
       "page": "docs/calendar.html",
-      "export": "@vusux/phosphor/calendar",
-      "bootstrapMarkup": "Not required — Phosphor-only component; the date field reuses Bootstrap .form-control on the input, the footer uses .btn .btn-sm",
+      "export": "@vusux/phosphorstrap/calendar",
+      "bootstrapMarkup": "Not required — Phosphorstrap-only component; the date field reuses Bootstrap .form-control on the input, the footer uses .btn .btn-sm",
       "bootstrapJs": false,
       "phosphorOnly": true,
       "classes": [".ph-calendar", ".ph-calendar__field", ".ph-calendar__input", ".ph-calendar__toggle", ".ph-calendar__popover", ".ph-calendar__header", ".ph-calendar__nav", ".ph-calendar__title", ".ph-calendar__grid", ".ph-calendar__day", ".ph-calendar__footer", ".ph-calendar__day--outside", ".ph-calendar__day--today", ".ph-calendar__day--selected", ".ph-calendar__day--range", ".ph-calendar.is-open", ".ph-calendar--end"],
@@ -223,7 +223,7 @@
     }
   ],
   "utilities": {
-    "export": "@vusux/phosphor (inside phosphor.css; see src/utilities.css)",
+    "export": "@vusux/phosphorstrap (inside phosphorstrap.css; see src/utilities.css)",
     "classes": [
       { "name": ".ph-glow", "role": "amber CRT text glow" },
       { "name": ".ph-glow-soft", "role": "subtle glow" },

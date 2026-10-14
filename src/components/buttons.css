@@ -1,7 +1,7 @@
-/* Phosphor — buttons
+/* Phosphorstrap — buttons
    Colors are the bridge's job (--bs-btn-* → --ph-*); this file only adds
    what the bridge cannot reach: the gradient wash on solid variants,
-   terminal letter-spacing, and Phosphor motion/focus polish. */
+   terminal letter-spacing, and Phosphorstrap motion/focus polish. */
 
 .btn {
   font-family: var(--ph-font-mono);

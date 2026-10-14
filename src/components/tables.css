@@ -1,4 +1,4 @@
-/* Phosphor — tables
+/* Phosphorstrap — tables
    Color comes from the bridge: --bs-table-color/bg/border resolve to
    tokens, and the striped/active/hover washes decompose
    --bs-emphasis-color-rgb (= --ph-text-rgb) so they flip per theme.

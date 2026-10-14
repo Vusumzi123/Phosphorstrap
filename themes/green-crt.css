@@ -1,6 +1,6 @@
-/* Phosphor community theme — green-crt (example)
+/* Phosphorstrap community theme — green-crt (example)
    One-file drop-in: override the --ph-* tokens and nothing else.
-   Activate with <html data-theme="green-crt"> (after phosphor.css).
+   Activate with <html data-theme="green-crt"> (after phosphorstrap.css).
    Classic P1 phosphor green on black — the terminal the name came from. */
 
 [data-theme="green-crt"] {

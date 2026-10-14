@@ -1,4 +1,4 @@
-# THEMES.md — authoring a Phosphor community theme
+# THEMES.md — authoring a Phosphorstrap community theme
 
 A community theme is **one CSS file that overrides `--ph-*` tokens**. No
 build step, no Sass, no component selectors. The token schema in the table
@@ -18,11 +18,11 @@ Reference files:
 3. **Change values.** Any subset works; omitted tokens inherit from
    `tokens.css` (light) / `dark.css`. Every color token needs its
    `--ph-*-rgb` companion (comma-separated 0–255 triplet, no `rgb()` wrapper).
-4. **Ship it after Phosphor:**
+4. **Ship it after Phosphorstrap:**
 
    ```html
    <link rel="stylesheet" href="bootstrap.min.css">
-   <link rel="stylesheet" href="phosphor.css">
+   <link rel="stylesheet" href="phosphorstrap.css">
    <link rel="stylesheet" href="my-theme.css">
    <html lang="en" data-theme="my-theme">
    ```
@@ -61,7 +61,7 @@ Reference files:
   `--bs-* → --ph-*`, which is why one file recolors every Bootstrap component.
 - **Don't** write component selectors (`.btn`, `.ph-panel …`) in a theme.
 - **Don't** ship a color literal where a token exists, in app CSS either.
-- **Do** keep `--ph-font-mono` the UI default — Phosphor is mono in light,
+- **Do** keep `--ph-font-mono` the UI default — Phosphorstrap is mono in light,
   dark, and every community theme.
 - **Do** keep contrast honest: `--ph-text` on `--ph-bg` ≥ 4.5:1 for body copy;
   `--ph-on-accent`-style usage (button labels) picks light or dark per accent
@@ -78,7 +78,7 @@ for themes. A theme written against this table keeps working.
 `docs/gallery.html` holds a `THEMES` array at the top of its script block —
 append an entry (`id`, label, description, stylesheet path). The switcher and
 the compatibility check pick it up automatically. The preview set covers the
-full Phosphor component pass plus the bridge-themed Bootstrap elements:
+full Phosphorstrap component pass plus the bridge-themed Bootstrap elements:
 navbar, dropdown, buttons, badges, alerts, forms (input/select/check/radio/
 switch/range), cards (header/footer), tables, panels (incl. `--accent`),
 tabs & pills, breadcrumb, pagination, progress, list-group, accordion,

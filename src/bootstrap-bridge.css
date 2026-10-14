@@ -1,8 +1,8 @@
-/* Phosphor — Bootstrap 5.3 bridge
+/* Phosphorstrap — Bootstrap 5.3 bridge
    Two layers:
    1. :root — variables Bootstrap itself resolves via var().
    2. element selectors — Bootstrap hardcodes variant values on .btn-*,
-      .card, .form-select; phosphor.css loads after bootstrap.css, so
+      .card, .form-select; phosphorstrap.css loads after bootstrap.css, so
       same-specificity rules here win the cascade.
    Theme flipping needs no [data-theme] duplication below the aliases:
    every value is a var() into the token layer, which dark.css overrides.
@@ -186,7 +186,7 @@
   --bs-toast-header-border-color: var(--ph-border);
 }
 
-/* Bootstrap inverts .btn-close under [data-bs-theme="dark"]; Phosphor
+/* Bootstrap inverts .btn-close under [data-bs-theme="dark"]; Phosphorstrap
    flips via data-theme, so apply the same filter here. */
 [data-theme="dark"] .btn-close {
   filter: invert(1) grayscale(100%) brightness(200%);
@@ -212,7 +212,7 @@
   box-shadow: 0 0 0 0.25rem rgba(var(--ph-primary-rgb), 0.25);
 }
 
-/* --- components without a Phosphor module --------------------------
+/* --- components without a Phosphorstrap module --------------------------
    Bootstrap hardcodes #0d6efd (and focus-ring blue) on these selectors;
    re-map to the token layer so every theme — built-in or community —
    recolors them. Same-specificity rules, loaded after Bootstrap: win. */

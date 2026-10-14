@@ -1,11 +1,11 @@
 {
-  "name": "@vusux/phosphor",
+  "name": "@vusux/phosphorstrap",
   "version": "0.1.0",
   "description": "Retro-terminal design language — a theme + token layer over Bootstrap 5.3",
   "license": "MIT",
   "type": "module",
   "exports": {
-    ".": "./dist/phosphor.css",
+    ".": "./dist/phosphorstrap.css",
     "./tokens": "./dist/tokens.css",
     "./dark": "./dist/themes/dark.css",
     "./bootstrap-bridge": "./dist/bootstrap-bridge.css",

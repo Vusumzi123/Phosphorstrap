@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* Phosphor build — tiny bundler: concat src modules → dist/.
+/* Phosphorstrap build — tiny bundler: concat src modules → dist/.
    Plain CSS in, plain CSS out; lightningcss minify is optional
    (used automatically when installed, skipped silently otherwise). */
 
@@ -20,7 +20,7 @@ const readSrc = (rel) => readFile(path.join(srcDir, rel), "utf8");
 async function minify(css) {
   try {
     const { transform } = await import("lightningcss");
-    return transform({ css, minify: true, filename: "phosphor.css" }).code.toString();
+    return transform({ css, minify: true, filename: "phosphorstrap.css" }).code.toString();
   } catch {
     return css; // optional dependency not installed — ship unminified
   }
@@ -43,7 +43,7 @@ async function writeDist(rel, content) {
 }
 
 async function main() {
-  console.log("phosphor build → dist/");
+  console.log("phosphorstrap build → dist/");
 
   // individual entry modules (unminified, debuggable)
   for (const rel of bundleOrder) {
@@ -59,7 +59,7 @@ async function main() {
   if (existsSync(path.join(srcDir, "utilities.css"))) {
     parts.push(await readSrc("utilities.css"));
   }
-  await writeDist("phosphor.css", await minify(parts.join("\n")));
+  await writeDist("phosphorstrap.css", await minify(parts.join("\n")));
 
   // per-component entries for the package exports map
   for (const rel of components) {

@@ -1,5 +1,5 @@
-/* Phosphor — utilities
-   A small Phosphor-only helper set (glow, sepia surfaces, CRT details).
+/* Phosphorstrap — utilities
+   A small Phosphorstrap-only helper set (glow, sepia surfaces, CRT details).
    Bootstrap utilities do the generic spacing/flex/color work; these
    carry the terminal identity. All read from --ph-* tokens, so every
    helper flips with the theme. */

@@ -1,6 +1,6 @@
-# Phosphor — Retro-Terminal Design Language for Web Apps
+# Phosphorstrap — Retro-Terminal Design Language for Web Apps
 
-Working plan. Package name `@vusux/phosphor` (adjustable), class prefix `ph-`.
+Working plan. Package name `@vusux/phosphorstrap` (adjustable), class prefix `ph-`.
 
 ## Concept
 
@@ -8,10 +8,10 @@ A **theme + token layer over Bootstrap 5.3**, not a competing UI kit:
 
 - **Bootstrap provides** the grid, responsive utilities, and all JS behaviors
   (modal, toast, dropdown, collapse, tooltip…).
-- **Phosphor provides** the design language: sepia terminal palette, modernized
+- **Phosphorstrap provides** the design language: sepia terminal palette, modernized
   geometry (soft shadows, rounded corners, subtle gradients), component polish
   Bootstrap lacks, and a community-theme system.
-- Net effect: any Bootstrap app becomes a Phosphor app by swapping one CSS
+- Net effect: any Bootstrap app becomes a Phosphorstrap app by swapping one CSS
   import and setting `data-theme="dark|light"` on `<html>`.
 
 ### Visual identity — old terminals & PCs, modern craft
@@ -41,19 +41,19 @@ A **theme + token layer over Bootstrap 5.3**, not a competing UI kit:
 ## Architecture
 
 ```
-Phosphor/
+Phosphorstrap/
 ├── src/
 │   ├── tokens.css          # ALL design tokens (:root, light default)
 │   ├── themes/
 │   │   ├── dark.css        # [data-theme="dark"] token overrides
 │   │   └── TEMPLATE.css    # community-theme starting point
-│   ├── bootstrap-bridge.css# maps Bootstrap 5.3 --bs-* vars → Phosphor tokens
+│   ├── bootstrap-bridge.css# maps Bootstrap 5.3 --bs-* vars → Phosphorstrap tokens
 │   ├── components/
 │   │   ├── buttons.css  forms.css  alerts.css  cards.css  panels.css
 │   │   ├── modals.css   toasts.css  tables.css  badges.css  navs.css …
 │   │   └── calendar.css    # v1.1 (ph-calendar)
-│   ├── utilities.css       # small Phosphor utility set (glow, sepia-surface…)
-│   └── phosphor.css        # umbrella: tokens + dark + bridge + all components
+│   ├── utilities.css       # small Phosphorstrap utility set (glow, sepia-surface…)
+│   └── phosphorstrap.css        # umbrella: tokens + dark + bridge + all components
 ├── docs/                   # static playground — one HTML page per component
 │   ├── AGENTS.md           # agent-facing usage contract
 │   └── manifest.json       # machine-readable component/token catalog
@@ -85,7 +85,7 @@ One vocabulary everything reads from:
   --bs-btn-bg: var(--ph-primary); …` — Bootstrap components recolor
   automatically.
 - Component files only touch what the bridge can't reach (borders, washes,
-  custom states) + Phosphor-only extras.
+  custom states) + Phosphorstrap-only extras.
 - **Community theme = one CSS file** overriding `--ph-*` tokens; the token
   schema is the contract. `themes/TEMPLATE.css` + gallery page ship with it.
 
@@ -93,7 +93,7 @@ One vocabulary everything reads from:
 
 ```json
 "exports": {
-  ".": "./dist/phosphor.css",
+  ".": "./dist/phosphorstrap.css",
   "./tokens": "./dist/tokens.css",
   "./dark": "./dist/themes/dark.css",
   "./buttons": "./dist/components/buttons.css",
@@ -105,7 +105,7 @@ Angular consumer (`angular.json`):
 
 ```json
 "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css",
-           "node_modules/@vusux/phosphor/dist/phosphor.css"]
+           "node_modules/@vusux/phosphorstrap/dist/phosphorstrap.css"]
 ```
 
 ## AI-agent usability (first-class)
@@ -114,7 +114,7 @@ Angular consumer (`angular.json`):
    counterpart, tokens consumed, do/don't examples. An agent can answer
    "how do I make a modal?" without reading CSS.
 2. **`AGENTS.md`** in the package — naming rules (`ph-` prefix only for
-   Phosphor-only components; Bootstrap classes reused as-is), theme-authoring
+   Phosphorstrap-only components; Bootstrap classes reused as-is), theme-authoring
    guide, token table.
 3. **Naming discipline** — BEM-lite everywhere: `.ph-panel`,
    `.ph-panel__header`, `.ph-panel--accent`; Bootstrap classes never renamed.
@@ -125,7 +125,7 @@ Angular consumer (`angular.json`):
 
 **v1 (core set):** tokens + theme system + bridge · buttons · forms (text
 fields, textarea, checkbox, radio, select) · alerts · cards · panels
-(Phosphor-only titled section container with gradient header) · modals ·
+(Phosphorstrap-only titled section container with gradient header) · modals ·
 toasts · badges · tables · navs/tabs · utilities.
 
 **v1.1:** calendar/datepicker — Bootstrap has no native one; `ph-calendar`
@@ -151,7 +151,7 @@ keyboard-accessible).
 2. **Component pass 1** — buttons, forms, alerts, cards, panels (docs page
    each).
 3. **Component pass 2** — modals, toasts (Bootstrap JS themed), tables,
-   badges, navs; umbrella `phosphor.css`.
+   badges, navs; umbrella `phosphorstrap.css`.
 4. **Agent surface + polish** — `manifest.json`, `AGENTS.md`, playground
    index, README with Angular/vanilla/React snippets; validate against
    `My-first-app`.
@@ -170,7 +170,7 @@ keyboard-accessible).
 |---|---|---|
 | Packaging | CSS-first, framework-agnostic (Bootstrap = peer dep) | 2026-10-13 |
 | Bootstrap depth | Theme layer over Bootstrap 5.3 CSS variables | 2026-10-13 |
-| Name | **Phosphor** (`ph-` prefix) | 2026-10-13 |
+| Name | **Phosphorstrap** (`ph-` prefix) | 2026-10-13 |
 | v1 scope | Core set first; calendar deferred to v1.1 | 2026-10-13 |
 | Modes | Dark + light, `data-theme` attribute | 2026-10-13 |
 | Theming | `--ph-*` token schema, one-file community themes | 2026-10-13 |

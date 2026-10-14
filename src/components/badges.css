@@ -1,8 +1,8 @@
-/* Phosphor — badges
+/* Phosphorstrap — badges
    Bridge sets --bs-badge-border-radius. This file adds the mono
    uppercase chip type and a hairline edge, plus ink flips: white on
    amber/yellow/teal fails contrast, so those variants take dark ink
-   (phosphor.css loads after bootstrap.css, so these win the cascade). */
+   (phosphorstrap.css loads after bootstrap.css, so these win the cascade). */
 
 .badge {
   font-family: var(--ph-font-mono);

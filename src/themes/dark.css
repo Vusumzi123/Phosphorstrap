@@ -1,4 +1,4 @@
-/* Phosphor — dark theme ([data-theme="dark"])
+/* Phosphorstrap — dark theme ([data-theme="dark"])
    Token overrides only; the bridge maps these onto Bootstrap.
    Every token that can appear on screen flips here — font families
    are theme-invariant and intentionally live only in tokens.css. */

@@ -1,24 +1,24 @@
-# AGENTS.md — Phosphor usage contract for AI agents
+# AGENTS.md — Phosphorstrap usage contract for AI agents
 
-You can style any Bootstrap 5.3 app as a Phosphor app **without reading the
+You can style any Bootstrap 5.3 app as a Phosphorstrap app **without reading the
 CSS sources**. This file plus [`manifest.json`](manifest.json) is the whole
 contract.
 
 ## The one rule
 
-> **Bootstrap provides the markup; Phosphor provides the paint.**
-> Import `bootstrap.min.css` first, `phosphor.css` second, set
+> **Bootstrap provides the markup; Phosphorstrap provides the paint.**
+> Import `bootstrap.min.css` first, `phosphorstrap.css` second, set
 > `data-theme="dark"` or `"light"` on `<html>`. Never rename a Bootstrap
 > class and never invent a `ph-` wrapper around one.
 
 - **Bootstrap classes stay Bootstrap.** `.btn`, `.form-control`, `.alert`,
   `.card`, `.modal`, `.toast`, `.table`, `.badge`, `.nav-tabs` — use them
   exactly as Bootstrap documents them, including its JS for modal/toast.
-- **`ph-` prefix is reserved for Phosphor-only things**: the `ph-panel`
+- **`ph-` prefix is reserved for Phosphorstrap-only things**: the `ph-panel`
   component, `ph-calendar` (Bootstrap has no datepicker), and the small
   utility set (`.ph-glow`, `.ph-label`, …).
   There is no `.ph-btn`, `.ph-card`, `.ph-alert`, `.ph-modal`, `.ph-datepicker`.
-- **Phosphor-only modifiers use one dash pair**: `.toast--success`,
+- **Phosphorstrap-only modifiers use one dash pair**: `.toast--success`,
   `.ph-panel--accent`. Elements use `__`: `.ph-panel__header`.
 
 ## Minimal page
@@ -27,7 +27,7 @@ contract.
 <html lang="en" data-theme="dark">
 <head>
   <link rel="stylesheet" href="bootstrap.min.css">
-  <link rel="stylesheet" href="phosphor.css">
+  <link rel="stylesheet" href="phosphorstrap.css">
 </head>
 <body>
   <button class="btn btn-primary">It just works</button>
@@ -45,14 +45,14 @@ Flip the whole UI by changing `data-theme` — no second stylesheet, no JS.
 | Text input / select / checkbox | `.form-control` `.form-select` `.form-check-input` | Bootstrap, themed |
 | Alert banner | `.alert .alert-warning` | Bootstrap, themed |
 | Content card | `.card` | Bootstrap, themed |
-| Titled section w/ gradient header | `.ph-panel` + `__header` + `__body` | **Phosphor-only** |
+| Titled section w/ gradient header | `.ph-panel` + `__header` + `__body` | **Phosphorstrap-only** |
 | Dialog | `.modal` + Bootstrap JS | Bootstrap, themed |
-| Notification | `.toast` + Bootstrap JS, optional `.toast--success` etc. | Bootstrap + Phosphor modifier |
+| Notification | `.toast` + Bootstrap JS, optional `.toast--success` etc. | Bootstrap + Phosphorstrap modifier |
 | Data table | `.table` (+ `.table-striped`) | Bootstrap, themed |
 | Chip / status | `.badge .text-bg-primary` | Bootstrap, themed |
 | Tabs / pills | `.nav-tabs` / `.nav-pills` + `.nav-link` | Bootstrap, themed |
-| Date picker | `.ph-calendar` + `__field`/`__popover`/`__grid`/`__day` | **Phosphor-only** (no Bootstrap counterpart) |
-| CRT glow / mono caption | `.ph-glow` / `.ph-label` | Phosphor utilities |
+| Date picker | `.ph-calendar` + `__field`/`__popover`/`__grid`/`__day` | **Phosphorstrap-only** (no Bootstrap counterpart) |
+| CRT glow / mono caption | `.ph-glow` / `.ph-label` | Phosphorstrap utilities |
 
 Full class lists, tokens consumed, and do/don't snippets per component:
 [`manifest.json`](manifest.json). Live examples: `npx serve docs`.
@@ -115,7 +115,7 @@ cannot be decomposed by custom properties.
 ## Authoring a community theme (one file)
 
 A theme is a single CSS file that re-declares the token names inside a
-selector. Ship it AFTER `phosphor.css`:
+selector. Ship it AFTER `phosphorstrap.css`:
 
 ```css
 /* my-theme.css */
@@ -138,9 +138,9 @@ live check: [`gallery.html`](gallery.html).
 
 ## Package surface
 
-- Umbrella: `@vusux/phosphor` → `dist/phosphor.css` (tokens + dark +
+- Umbrella: `@vusux/phosphorstrap` → `dist/phosphorstrap.css` (tokens + dark +
   bridge + utilities + all components).
-- Per-area entries exist for tree-shaking: `@vusux/phosphor/buttons`,
+- Per-area entries exist for tree-shaking: `@vusux/phosphorstrap/buttons`,
   `/forms`, `/alerts`, `/cards`, `/panels`, `/modals`, `/toasts`,
   `/tables`, `/badges`, `/navs`, `/calendar`; also `/tokens`, `/dark`,
   `/bootstrap-bridge`.
@@ -148,14 +148,14 @@ live check: [`gallery.html`](gallery.html).
 
 ## Gotchas
 
-1. **Import order matters**: Bootstrap CSS must precede Phosphor, otherwise
-   Phosphor rules lose the cascade.
+1. **Import order matters**: Bootstrap CSS must precede Phosphorstrap, otherwise
+   Phosphorstrap rules lose the cascade.
 2. **Dark is not the default** — no `data-theme` means light. Always set the
    attribute explicitly.
 3. **`.toast--success` not `.ph-toast--success`** — toast modifiers are the
-   one place where Bootstrap's class takes a Phosphor suffix.
+   one place where Bootstrap's class takes a Phosphorstrap suffix.
 4. **JS-owned components** (modal, toast, dropdown, collapse, tooltip) need
-   `bootstrap.bundle.min.js`; Phosphor only themes them.
+   `bootstrap.bundle.min.js`; Phosphorstrap only themes them.
 5. Fonts are theme-invariant: both themes use `--ph-font-mono` by default —
    a terminal UI is mono in light *and* dark.
 6. **`ph-calendar` is CSS only** — it paints a date field + month-grid

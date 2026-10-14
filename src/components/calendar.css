@@ -1,4 +1,4 @@
-/* Phosphor — calendar (Phosphor-only component, v1.1)
+/* Phosphorstrap — calendar (Phosphorstrap-only component, v1.1)
    Bootstrap has no datepicker, so ph-calendar is built from scratch on the
    token system: a date field (input + toggle) that opens a popover with a
    month grid. Full ph- BEM-lite name: .ph-calendar, __field, __input,

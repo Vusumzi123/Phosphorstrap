@@ -1,4 +1,4 @@
-/* Phosphor — design tokens (light default)
+/* Phosphorstrap — design tokens (light default)
    Single vocabulary everything reads from. Community themes override
    these same --ph-* names; this file is the contract.
    RGB companions exist because rgba(var(--ph-*-rgb)) custom properties

@@ -1,4 +1,4 @@
-/* Phosphor — navs (tabs, pills, links)
+/* Phosphorstrap — navs (tabs, pills, links)
    Colors already resolve through the bridge: link hover → --ph-primary,
    borders → --ph-border, active-tab bg → body surface, pills active bg
    → --ph-primary with dark ink. This file adds the terminal treatment:

@@ -1,12 +1,12 @@
-# Phosphor
+# Phosphorstrap
 
 Retro-terminal design language — a **theme + token layer over Bootstrap 5.3**.
-Any Bootstrap app becomes a Phosphor app by importing two CSS files and setting
+Any Bootstrap app becomes a Phosphorstrap app by importing two CSS files and setting
 `data-theme="dark|light"` on `<html>`.
 
 ```html
 <link rel="stylesheet" href="bootstrap.min.css">
-<link rel="stylesheet" href="phosphor.css">
+<link rel="stylesheet" href="phosphorstrap.css">
 <html data-theme="dark">
 ```
 
@@ -34,7 +34,7 @@ Bootstrap `^5.3` is a peer dependency (imported first, never bundled).
 ```json
 "styles": [
   "node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "node_modules/@vusux/phosphor/dist/phosphor.css"
+  "node_modules/@vusux/phosphorstrap/dist/phosphorstrap.css"
 ]
 ```
 
@@ -42,15 +42,15 @@ Or per-area imports in `styles.css`:
 
 ```css
 @import "bootstrap/dist/css/bootstrap.min.css";
-@import "@vusux/phosphor";
-/* or: @import "@vusux/phosphor/tokens"; @import "@vusux/phosphor/buttons"; */
+@import "@vusux/phosphorstrap";
+/* or: @import "@vusux/phosphorstrap/tokens"; @import "@vusux/phosphorstrap/buttons"; */
 ```
 
 ### Vanilla
 
 ```html
 <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="node_modules/@vusux/phosphor/dist/phosphor.css">
+<link rel="stylesheet" href="node_modules/@vusux/phosphorstrap/dist/phosphorstrap.css">
 <html lang="en" data-theme="dark">
 ```
 
@@ -59,7 +59,7 @@ Or per-area imports in `styles.css`:
 ```js
 // main.jsx
 import "bootstrap/dist/css/bootstrap.min.css";
-import "@vusux/phosphor";
+import "@vusux/phosphorstrap";
 ```
 
 ```jsx
@@ -85,7 +85,7 @@ document.documentElement.dataset.theme =
 
 A theme is one CSS file overriding the `--ph-*` tokens — copy
 [`themes/TEMPLATE.css`](themes/TEMPLATE.css), rename the `data-theme` id,
-load it after `phosphor.css`. Guide: [`docs/THEMES.md`](docs/THEMES.md) ·
+load it after `phosphorstrap.css`. Guide: [`docs/THEMES.md`](docs/THEMES.md) ·
 live previews: [`docs/gallery.html`](docs/gallery.html) (shipped example:
 [`themes/green-crt.css`](themes/green-crt.css)).
 
@@ -101,14 +101,14 @@ npm run build   # node scripts/build.mjs → dist/
 - `src/themes/dark.css` — `[data-theme="dark"]` overrides
 - `src/bootstrap-bridge.css` — `--bs-*` → `--ph-*` mapping
 - `src/components/*.css` — one module per component (buttons, forms, alerts, cards, panels, modals, toasts, tables, badges, navs, calendar)
-- `src/utilities.css` — Phosphor-only helpers (`.ph-glow`, `.ph-label`, …)
+- `src/utilities.css` — Phosphorstrap-only helpers (`.ph-glow`, `.ph-label`, …)
 - `docs/*.html` — static playground, one page per component (`npx serve docs`)
 
 ## Package exports
 
 ```json
 "exports": {
-  ".": "./dist/phosphor.css",
+  ".": "./dist/phosphorstrap.css",
   "./tokens": "./dist/tokens.css",
   "./dark": "./dist/themes/dark.css",
   "./bootstrap-bridge": "./dist/bootstrap-bridge.css",

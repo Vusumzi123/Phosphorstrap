@@ -1,5 +1,5 @@
-/* Global app chrome only — all design decisions come from the Phosphor
-   token layer (node_modules/@vusux/phosphor/dist/phosphor.css). */
+/* Global app chrome only — all design decisions come from the Phosphorstrap
+   token layer (node_modules/@vusux/phosphorstrap/dist/phosphorstrap.css). */
 
 body {
   min-height: 100dvh;
