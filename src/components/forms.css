@@ -61,7 +61,21 @@
   border-color: var(--ph-primary);
 }
 
-/* range — Bootstrap hardcodes a blue thumb and focus ring */
+/* range — Bootstrap paints the track with --bs-secondary-bg, which the
+   bridge maps to --ph-surface: the same color as .card, so the line
+   disappears inside cards. Solid muted ink keeps it visible on every
+   surface (a translucent color-mix dropped contrast below 3:1 on dark).
+   One rule PER VENDOR: Blink treats an unrecognized ::-moz-* inside a
+   selector list as a parse error and drops the whole rule, so a combined
+   webkit+moz list silently never applies in Chrome/Brave/Edge. */
+.form-range::-webkit-slider-runnable-track {
+  background-color: var(--ph-text-muted);
+}
+
+.form-range::-moz-range-track {
+  background-color: var(--ph-text-muted);
+}
+
 .form-range::-webkit-slider-thumb {
   background-color: var(--ph-primary);
 }
