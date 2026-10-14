@@ -1,0 +1,241 @@
+{
+  "name": "@vusux/phosphor",
+  "version": "0.1.0",
+  "description": "Retro-terminal design language — a theme + token layer over Bootstrap 5.3",
+  "bootstrap": {
+    "peer": "^5.3.0",
+    "note": "Import Bootstrap 5.3 CSS BEFORE Phosphor. Bootstrap provides the grid, utilities, and all JS behaviors (modal, toast, dropdown, collapse). Phosphor never renames Bootstrap classes."
+  },
+  "install": {
+    "css": "import \"bootstrap/dist/css/bootstrap.min.css\";\nimport \"@vusux/phosphor\";",
+    "theme": "Set data-theme=\"dark\" or data-theme=\"light\" on <html>. Default is light; no attribute also renders light."
+  },
+  "exports": {
+    ".": "./dist/phosphor.css",
+    "./tokens": "./dist/tokens.css",
+    "./dark": "./dist/themes/dark.css",
+    "./bootstrap-bridge": "./dist/bootstrap-bridge.css",
+    "./buttons": "./dist/components/buttons.css",
+    "./forms": "./dist/components/forms.css",
+    "./alerts": "./dist/components/alerts.css",
+    "./cards": "./dist/components/cards.css",
+    "./panels": "./dist/components/panels.css",
+    "./modals": "./dist/components/modals.css",
+    "./toasts": "./dist/components/toasts.css",
+    "./tables": "./dist/components/tables.css",
+    "./badges": "./dist/components/badges.css",
+    "./navs": "./dist/components/navs.css",
+    "./calendar": "./dist/components/calendar.css"
+  },
+  "naming": {
+    "pattern": "BEM-lite: .ph-block, .ph-block__element, .ph-block--modifier",
+    "rule": "ph- prefix ONLY for Phosphor-only components (.ph-panel, .ph-glow, …). Bootstrap classes (.btn, .card, .alert, .modal, .table, …) are styled in place and never renamed, extended, or prefixed."
+  },
+  "tokens": {
+    "color": [
+      { "name": "--ph-bg", "light": "#f4ead8", "dark": "#1a1512", "role": "page background" },
+      { "name": "--ph-surface", "light": "#faf3e3", "dark": "#221c17", "role": "default panel/card surface" },
+      { "name": "--ph-surface-raised", "light": "#fffbf2", "dark": "#2b231c", "role": "elevated surface (inputs, tab hover)" },
+      { "name": "--ph-border", "light": "#d9c9a8", "dark": "#3d3228", "role": "warm 1px borders" },
+      { "name": "--ph-text", "light": "#3b2f1e", "dark": "#e8dcc8", "role": "body ink" },
+      { "name": "--ph-text-muted", "light": "#7a6a52", "dark": "#a89878", "role": "secondary ink" },
+      { "name": "--ph-primary", "light": "#e0a458", "dark": "#e8b06a", "role": "amber accent" },
+      { "name": "--ph-success", "light": "#6a9f4a", "dark": "#8fbf5f", "role": "phosphor green" },
+      { "name": "--ph-warning", "light": "#c9922e", "dark": "#d9a441", "role": "amber warning" },
+      { "name": "--ph-danger", "light": "#c4453c", "dark": "#d4574c", "role": "CRT red" },
+      { "name": "--ph-info", "light": "#4a8f8f", "dark": "#5fb3b3", "role": "teal info" }
+    ],
+    "type": [
+      { "name": "--ph-font-mono", "role": "terminal type; default for UI chrome", "value": "ui-monospace, \"Cascadia Code\", \"Source Code Pro\", Menlo, Consolas, \"Liberation Mono\", monospace" },
+      { "name": "--ph-font-sans", "role": "prose / long-form fallback", "value": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif" },
+      { "name": "--ph-font-size-base", "role": "base font size", "value": "1rem" },
+      { "name": "--ph-text-xs", "role": "micro caps (labels, badges, table th)", "value": "0.75rem" },
+      { "name": "--ph-text-sm", "role": "captions, nav links, card titles", "value": "0.875rem" },
+      { "name": "--ph-text-lg", "role": "modal titles, card titles", "value": "1.125rem" },
+      { "name": "--ph-text-xl", "role": "h4", "value": "1.375rem" },
+      { "name": "--ph-text-2xl", "role": "h3", "value": "1.75rem" },
+      { "name": "--ph-text-3xl", "role": "h2 / display", "value": "2.25rem" },
+      { "name": "--ph-leading-tight", "role": "headings + uppercase chrome", "value": "1.25" },
+      { "name": "--ph-leading-base", "role": "body line-height (accessibility floor)", "value": "1.5" },
+      { "name": "--ph-leading-relaxed", "role": "long-form prose", "value": "1.65" }
+    ],
+    "spacing": [
+      { "name": "--ph-space-1", "role": "hairline step", "value": "4px" },
+      { "name": "--ph-space-2", "role": "tight gap (badge padding, inline gaps)", "value": "8px" },
+      { "name": "--ph-space-3", "role": "control vertical padding, row rhythm", "value": "12px" },
+      { "name": "--ph-space-4", "role": "component horizontal padding (comfortable)", "value": "16px" },
+      { "name": "--ph-space-5", "role": "card/panel body padding", "value": "24px" },
+      { "name": "--ph-space-6", "role": "between-group spacing", "value": "32px" },
+      { "name": "--ph-space-7", "role": "section spacing", "value": "48px" },
+      { "name": "--ph-space-8", "role": "major section spacing", "value": "64px" },
+      { "name": "--ph-control-height", "role": "min touch target for buttons/inputs/tabs", "value": "2.75rem (44px)" }
+    ],
+    "shape": [
+      { "name": "--ph-radius-sm", "role": "small radius", "value": "6px" },
+      { "name": "--ph-radius-md", "role": "default radius (inputs, alerts)", "value": "8px" },
+      { "name": "--ph-radius-lg", "role": "large radius (cards, panels)", "value": "10px" },
+      { "name": "--ph-shadow-1", "role": "hairline depth (alerts, resting)", "value": "0 1px 2px rgba(59,47,30,0.08)" },
+      { "name": "--ph-shadow-2", "role": "raised depth (cards, tab hover)", "value": "0 2px 8px rgba(59,47,30,0.12)" },
+      { "name": "--ph-shadow-3", "role": "floating depth (hover lift, accent panel)", "value": "0 6px 20px rgba(59,47,30,0.18)" },
+      { "name": "--ph-gradient-header", "role": "amber header wash (panel header, modal header, active tab)", "value": "linear-gradient(180deg,#f0d9ae 0%,#e6c892 100%)" }
+    ],
+    "motion": [
+      { "name": "--ph-transition-fast", "role": "micro-interactions (color, border, shadow)", "value": "120ms ease" },
+      { "name": "--ph-transition-base", "role": "elevations and layout-ish shifts", "value": "200ms ease" }
+    ],
+    "rgb": "Each color token has a companion --ph-*-rgb triplet (e.g. --ph-primary-rgb: 224, 164, 88) for rgba(var(--ph-*-rgb), .n) usage. Hex cannot be decomposed by custom properties, so both forms ship.",
+    "themeContract": "A community theme is ONE CSS file overriding the --ph-* names above. No component file needs to change."
+  },
+  "components": [
+    {
+      "id": "buttons",
+      "page": "docs/buttons.html",
+      "export": "@vusux/phosphor/buttons",
+      "bootstrapMarkup": "Required — use Bootstrap .btn markup unchanged",
+      "bootstrapJs": false,
+      "classes": [".btn", ".btn-primary", ".btn-secondary", ".btn-success", ".btn-danger", ".btn-warning", ".btn-info", ".btn-outline-*", ".btn-sm", ".btn-lg"],
+      "phosphorAdds": "gradient wash on solid variants, 600-weight mono type, 44px touch target, press-down micro-interaction, warm focus glow",
+      "tokens": ["--ph-font-mono", "--ph-primary-rgb", "--ph-transition-fast", "--ph-control-height", "--ph-space-3", "--ph-space-5"],
+      "do": "<button class=\"btn btn-primary\">Save</button>",
+      "dont": "<button class=\"ph-btn\">Save</button>  // there is no .ph-btn — Phosphor styles .btn in place"
+    },
+    {
+      "id": "forms",
+      "page": "docs/forms.html",
+      "export": "@vusux/phosphor/forms",
+      "bootstrapMarkup": "Required — Bootstrap .form-control / .form-select / .form-check markup",
+      "bootstrapJs": false,
+      "classes": [".form-control", ".form-select", ".form-check-input", ".is-valid", ".is-invalid"],
+      "phosphorAdds": "44px inputs on the spacing scale, raised-surface fill, amber focus ring + glow, muted placeholder, dark-ink checked boxes, validation glow",
+      "tokens": ["--ph-surface-raised", "--ph-border", "--ph-text", "--ph-primary", "--ph-success", "--ph-danger", "--ph-radius-md", "--ph-transition-fast", "--ph-control-height", "--ph-leading-base", "--ph-space-2", "--ph-space-3"],
+      "do": "<input class=\"form-control\" placeholder=\"query…\">",
+      "dont": "<input class=\"form-control ph-input\">  // no ph- wrapper class exists"
+    },
+    {
+      "id": "alerts",
+      "page": "docs/alerts.html",
+      "export": "@vusux/phosphor/alerts",
+      "bootstrapMarkup": "Required — Bootstrap .alert markup",
+      "bootstrapJs": false,
+      "classes": [".alert", ".alert-primary", ".alert-secondary", ".alert-success", ".alert-danger", ".alert-warning", ".alert-info"],
+      "phosphorAdds": "state-colored left status edge (via bridge subtle mixes), mono type on the spacing scale, hover depth lift; palette still via bridge",
+      "tokens": ["--ph-border", "--ph-font-mono", "--ph-radius-md", "--ph-shadow-1", "--ph-shadow-2", "--ph-transition-fast", "--ph-leading-base", "--ph-space-3", "--ph-space-4"],
+      "do": "<div class=\"alert alert-warning\" role=\"alert\">Low disk</div>",
+      "dont": "<div class=\"ph-alert\">…</div>  // no such class"
+    },
+    {
+      "id": "cards",
+      "page": "docs/cards.html",
+      "export": "@vusux/phosphor/cards",
+      "bootstrapMarkup": "Required — Bootstrap .card markup",
+      "bootstrapJs": false,
+      "classes": [".card", ".card-body", ".card-header", ".card-footer", ".card-title", ".card-text"],
+      "phosphorAdds": "layered surface depth, large radius, hover lift (-2px), gradient uppercase card header, 24px body padding",
+      "tokens": ["--ph-surface", "--ph-border", "--ph-text", "--ph-radius-lg", "--ph-shadow-2", "--ph-shadow-3", "--ph-transition-base", "--ph-gradient-header", "--ph-space-5"],
+      "do": "<div class=\"card\"><div class=\"card-body\">…</div></div>",
+      "dont": "<div class=\"ph-card\">…</div>  // no such class"
+    },
+    {
+      "id": "panels",
+      "page": "docs/panels.html",
+      "export": "@vusux/phosphor/panels",
+      "bootstrapMarkup": "Not required — Phosphor-only component; Bootstrap grid may wrap it",
+      "bootstrapJs": false,
+      "phosphorOnly": true,
+      "classes": [".ph-panel", ".ph-panel__header", ".ph-panel__body", ".ph-panel--accent"],
+      "phosphorAdds": "titled section container with gradient header — Bootstrap has no counterpart",
+      "tokens": ["--ph-surface", "--ph-border", "--ph-text", "--ph-primary", "--ph-gradient-header", "--ph-radius-lg", "--ph-shadow-2", "--ph-shadow-3", "--ph-font-mono"],
+      "do": "<section class=\"ph-panel\"><header class=\"ph-panel__header\">System</header><div class=\"ph-panel__body\">…</div></section>",
+      "dont": "<div class=\"card ph-panel\">…</div>  // pick one; .card and .ph-panel are alternatives, not layers"
+    },
+    {
+      "id": "modals",
+      "page": "docs/modals.html",
+      "export": "@vusux/phosphor/modals",
+      "bootstrapMarkup": "Required — Bootstrap .modal markup + Bootstrap JS (data-bs-toggle / Modal API)",
+      "bootstrapJs": true,
+      "classes": [".modal", ".modal-dialog", ".modal-content", ".modal-header", ".modal-title", ".modal-body", ".modal-footer"],
+      "phosphorAdds": "gradient title bar, uppercase mono title on the type scale, 24px body padding, spaced footer actions; surface/backdrop themed via bridge vars",
+      "tokens": ["--ph-gradient-header", "--ph-font-mono", "--ph-text-lg", "--ph-space-5"],
+      "do": "Bootstrap modal markup + JS; Phosphor themes it — do not hand-roll overlays",
+      "dont": "<div class=\"ph-modal\">…</div>  // never reimplement Bootstrap JS components"
+    },
+    {
+      "id": "toasts",
+      "page": "docs/toasts.html",
+      "export": "@vusux/phosphor/toasts",
+      "bootstrapMarkup": "Required — Bootstrap .toast markup + Bootstrap JS (Toast API)",
+      "bootstrapJs": true,
+      "classes": [".toast", ".toast--success", ".toast--danger", ".toast--warning", ".toast--info"],
+      "phosphorAdds": "amber left status edge; the -- modifiers are the only Phosphor-owned classes here",
+      "tokens": ["--ph-primary", "--ph-success", "--ph-danger", "--ph-warning", "--ph-info"],
+      "do": "<div class=\"toast toast--success\" role=\"alert\">…</div>",
+      "dont": "<div class=\"toast ph-toast--success\">…</div>  // modifier is .toast--success (one dash pair)"
+    },
+    {
+      "id": "tables",
+      "page": "docs/tables.html",
+      "export": "@vusux/phosphor/tables",
+      "bootstrapMarkup": "Required — Bootstrap .table markup",
+      "bootstrapJs": false,
+      "classes": [".table", ".table-striped", ".table-hover", ".table-bordered"],
+      "phosphorAdds": "gradient header rail on thead, uppercase mono headers, 12/16 cell padding, warm hover fade; stripes flip with theme",
+      "tokens": ["--ph-font-mono", "--ph-text-muted", "--ph-transition-fast", "--ph-gradient-header", "--ph-text-xs", "--ph-space-3", "--ph-space-4"],
+      "do": "<table class=\"table table-striped\">…</table>",
+      "dont": "<table class=\"ph-table\">…</table>  // no such class"
+    },
+    {
+      "id": "badges",
+      "page": "docs/badges.html",
+      "export": "@vusux/phosphor/badges",
+      "bootstrapMarkup": "Required — Bootstrap .badge markup",
+      "bootstrapJs": false,
+      "classes": [".badge", ".text-bg-primary", ".text-bg-warning", ".text-bg-info", ".bg-*"],
+      "phosphorAdds": "mono uppercase chip type on the 4px scale, hairline edge, 600 weight, dark ink on light chips for contrast",
+      "tokens": ["--ph-font-mono", "--ph-text-xs", "--ph-space-1", "--ph-space-2"],
+      "do": "<span class=\"badge text-bg-primary\">v0.1</span>",
+      "dont": "<span class=\"ph-badge\">…</span>  // no such class"
+    },
+    {
+      "id": "navs",
+      "page": "docs/navs.html",
+      "export": "@vusux/phosphor/navs",
+      "bootstrapMarkup": "Required — Bootstrap .nav / .nav-tabs / .nav-pills markup",
+      "bootstrapJs": false,
+      "classes": [".nav", ".nav-tabs", ".nav-pills", ".nav-underline", ".nav-link"],
+      "phosphorAdds": "mono links at 44px targets, gradient active tab with amber underline, pills active depth, raised-surface tab hover",
+      "tokens": ["--ph-font-mono", "--ph-gradient-header", "--ph-surface-raised", "--ph-transition-fast", "--ph-control-height", "--ph-space-3", "--ph-space-4"],
+      "do": "<ul class=\"nav nav-tabs\"><li class=\"nav-item\"><button class=\"nav-link active\">…</button></li></ul>",
+      "dont": "<div class=\"ph-tabs\">…</div>  // no such class"
+    },
+    {
+      "id": "calendar",
+      "page": "docs/calendar.html",
+      "export": "@vusux/phosphor/calendar",
+      "bootstrapMarkup": "Not required — Phosphor-only component; the date field reuses Bootstrap .form-control on the input, the footer uses .btn .btn-sm",
+      "bootstrapJs": false,
+      "phosphorOnly": true,
+      "classes": [".ph-calendar", ".ph-calendar__field", ".ph-calendar__input", ".ph-calendar__toggle", ".ph-calendar__popover", ".ph-calendar__header", ".ph-calendar__nav", ".ph-calendar__title", ".ph-calendar__grid", ".ph-calendar__day", ".ph-calendar__footer", ".ph-calendar__day--outside", ".ph-calendar__day--today", ".ph-calendar__day--selected", ".ph-calendar__day--range", ".ph-calendar.is-open", ".ph-calendar--end"],
+      "phosphorAdds": "datepicker built from scratch (Bootstrap has none): input + toggle field, popover month grid, 44px day cells, amber today ring / selected fill, roving-tabindex day buttons — open/close, month math and key handling are consumer JS",
+      "tokens": ["--ph-surface", "--ph-surface-raised", "--ph-border", "--ph-text", "--ph-text-muted", "--ph-primary", "--ph-primary-rgb", "--ph-font-mono", "--ph-text-xs", "--ph-text-sm", "--ph-radius-sm", "--ph-radius-md", "--ph-radius-lg", "--ph-shadow-3", "--ph-control-height", "--ph-transition-fast", "--ph-space-1", "--ph-space-2", "--ph-space-3"],
+      "do": "<div class=\"ph-calendar\"><div class=\"ph-calendar__field\"><input class=\"form-control ph-calendar__input\"><button class=\"ph-calendar__toggle\" aria-expanded=\"false\" aria-controls=\"cal-pop\">▾</button></div><div class=\"ph-calendar__popover\" id=\"cal-pop\" role=\"dialog\" aria-label=\"Choose date\">…</div></div>",
+      "dont": "<input class=\"form-control ph-datepicker\">  // no ph-datepicker, no Bootstrap datepicker — it's .ph-calendar"
+    }
+  ],
+  "utilities": {
+    "export": "@vusux/phosphor (inside phosphor.css; see src/utilities.css)",
+    "classes": [
+      { "name": ".ph-glow", "role": "amber CRT text glow" },
+      { "name": ".ph-glow-soft", "role": "subtle glow" },
+      { "name": ".ph-surface", "role": "token-aliased surface background" },
+      { "name": ".ph-surface-raised", "role": "token-aliased raised background" },
+      { "name": ".ph-label", "role": "muted uppercase mono micro-caption" },
+      { "name": ".ph-scanlines", "role": "decorative scanline wash" }
+    ],
+    "note": "Generic spacing/flex/color utilities are Bootstrap's (.d-flex, .mt-4, .text-muted, …) — do not recreate them as ph- classes."
+  },
+  "docsPlayground": {
+    "serve": "npx serve docs",
+    "pages": ["index.html", "buttons.html", "forms.html", "alerts.html", "cards.html", "panels.html", "modals.html", "toasts.html", "tables.html", "badges.html", "navs.html", "calendar.html", "acceptance.html"]
+  }
+}

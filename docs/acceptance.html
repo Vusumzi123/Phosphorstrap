@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phosphor — acceptance (bare Bootstrap, two imports)</title>
+  <!-- import 1: Bootstrap 5.3 (unmodified) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- import 2: Phosphor umbrella (tokens + dark + bridge) -->
+  <link rel="stylesheet" href="../dist/phosphor.css">
+</head>
+<body>
+  <div class="container py-5" style="max-width: 40rem;">
+    <nav class="mb-4"><a href="index.html" class="btn btn-sm btn-outline-secondary">index</a></nav>
+    <h1 class="mb-3">Phosphor acceptance</h1>
+    <p class="lead">
+      A bare Bootstrap page with two CSS imports. Flip
+      <code>data-theme</code> on <code>&lt;html&gt;</code> between
+      <code>dark</code> and <code>light</code>.
+    </p>
+    <p>
+      <button class="btn btn-primary me-2">Primary</button>
+      <button class="btn btn-outline-primary me-2">Outline</button>
+      <button class="btn btn-secondary"
+        onclick="document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'">
+        Toggle theme
+      </button>
+    </p>
+    <div class="alert alert-info mt-4" role="alert">
+      Alert — tinted from <code>--ph-info</code> via the bridge.
+    </div>
+    <div class="card mt-4">
+      <div class="card-body">
+        <h5 class="card-title">Card</h5>
+        <p class="card-text">Surface, border, and text colors come from the token bridge.</p>
+        <a href="#" class="btn btn-primary">Link in card</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

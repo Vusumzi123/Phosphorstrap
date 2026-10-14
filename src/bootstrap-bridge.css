@@ -205,4 +205,59 @@
 
 .nav-pills {
   --bs-nav-pills-link-active-color: #1f1a12;
+  --bs-nav-pills-link-active-bg: var(--ph-primary);
+}
+
+.nav-link:focus-visible {
+  box-shadow: 0 0 0 0.25rem rgba(var(--ph-primary-rgb), 0.25);
+}
+
+/* --- components without a Phosphor module --------------------------
+   Bootstrap hardcodes #0d6efd (and focus-ring blue) on these selectors;
+   re-map to the token layer so every theme — built-in or community —
+   recolors them. Same-specificity rules, loaded after Bootstrap: win. */
+
+.progress,
+.progress-stacked {
+  --bs-progress-bar-bg: var(--ph-primary);
+  --bs-progress-bar-color: #1f1a12; /* white on amber fails contrast */
+}
+
+.list-group {
+  --bs-list-group-active-bg: var(--ph-primary);
+  --bs-list-group-active-border-color: var(--ph-primary);
+  --bs-list-group-active-color: #1f1a12;
+}
+
+.dropdown-menu {
+  --bs-dropdown-link-active-bg: var(--ph-primary);
+  --bs-dropdown-link-active-color: #1f1a12;
+}
+
+.pagination {
+  --bs-pagination-active-bg: var(--ph-primary);
+  --bs-pagination-active-border-color: var(--ph-primary);
+  --bs-pagination-active-color: #1f1a12;
+  --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(var(--ph-primary-rgb), 0.25);
+}
+
+.btn-close {
+  --bs-btn-close-focus-shadow: 0 0 0 0.25rem rgba(var(--ph-primary-rgb), 0.25);
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--ph-text);
+  background-color: var(--bs-primary-bg-subtle);
+}
+
+/* chevron icons: Bootstrap ships dark-navy strokes (invisible on dark
+   surfaces). SVG data-URIs can't read var(), so use a mid-gray stroke
+   that stays legible on parchment, charcoal, and community themes alike. */
+.accordion {
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23909090' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23909090' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 11L8 5L14 11'/%3e%3c/svg%3e");
+}
+
+.accordion-button:focus-visible {
+  box-shadow: 0 0 0 0.25rem rgba(var(--ph-primary-rgb), 0.25);
 }

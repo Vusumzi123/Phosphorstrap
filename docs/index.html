@@ -3,38 +3,89 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Phosphor — acceptance (bare Bootstrap, two imports)</title>
-  <!-- import 1: Bootstrap 5.3 (unmodified) -->
+  <title>Phosphor — playground</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <!-- import 2: Phosphor umbrella (tokens + dark + bridge) -->
   <link rel="stylesheet" href="../dist/phosphor.css">
 </head>
 <body>
-  <div class="container py-5" style="max-width: 40rem;">
-    <h1 class="mb-3">Phosphor acceptance</h1>
-    <p class="lead">
-      A bare Bootstrap page with two CSS imports. Flip
-      <code>data-theme</code> on <code>&lt;html&gt;</code> between
-      <code>dark</code> and <code>light</code>.
-    </p>
-    <p>
-      <button class="btn btn-primary me-2">Primary</button>
-      <button class="btn btn-outline-primary me-2">Outline</button>
-      <button class="btn btn-secondary"
+  <div class="container py-5" style="max-width: 48rem;">
+    <nav class="mb-4 d-flex flex-wrap gap-2 align-items-center">
+      <span class="ph-label me-2">phosphor playground</span>
+      <button class="btn btn-sm btn-secondary ms-auto"
         onclick="document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'">
         Toggle theme
       </button>
+    </nav>
+
+    <h1 class="mb-1">Phosphor</h1>
+    <p class="lead text-muted mb-4">
+      Retro-terminal design language — a theme + token layer over Bootstrap 5.3.
+      One page per component; inspect markup and CSS in both themes.
     </p>
-    <div class="alert alert-info mt-4" role="alert">
-      Alert — tinted from <code>--ph-info</code> via the bridge.
-    </div>
-    <div class="card mt-4">
-      <div class="card-body">
-        <h5 class="card-title">Card</h5>
-        <p class="card-text">Surface, border, and text colors come from the token bridge.</p>
-        <a href="#" class="btn btn-primary">Link in card</a>
+
+    <div class="ph-panel mb-4">
+      <header class="ph-panel__header">Quick start</header>
+      <div class="ph-panel__body">
+        <p>Two imports, one attribute — any Bootstrap page becomes a Phosphor page:</p>
+        <pre class="mb-0"><code>&lt;link rel="stylesheet" href="bootstrap.min.css"&gt;
+&lt;link rel="stylesheet" href="phosphor.css"&gt;
+&lt;html data-theme="dark"&gt;  &lt;!-- or "light" --&gt;</code></pre>
       </div>
     </div>
+
+    <h2 class="h5 mt-4 mb-2">Components</h2>
+    <div class="list-group mb-4">
+      <a href="buttons.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        Buttons <span class="badge text-bg-primary">.btn</span></a>
+      <a href="forms.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        Forms <span class="badge text-bg-primary">.form-control</span></a>
+      <a href="alerts.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        Alerts <span class="badge text-bg-primary">.alert</span></a>
+      <a href="cards.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        Cards <span class="badge text-bg-primary">.card</span></a>
+      <a href="panels.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        Panels <span class="badge text-bg-warning">.ph-panel</span></a>
+      <a href="modals.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        Modals <span class="badge text-bg-primary">.modal</span></a>
+      <a href="toasts.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        Toasts <span class="badge text-bg-primary">.toast</span></a>
+      <a href="tables.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        Tables <span class="badge text-bg-primary">.table</span></a>
+      <a href="badges.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        Badges <span class="badge text-bg-primary">.badge</span></a>
+      <a href="navs.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        Navs &amp; tabs <span class="badge text-bg-primary">.nav-tabs</span></a>
+      <a href="calendar.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        Calendar <span class="badge text-bg-warning">.ph-calendar</span></a>
+    </div>
+
+    <h2 class="h5 mt-4 mb-2">Reference</h2>
+    <div class="list-group mb-4">
+      <a href="gallery.html" class="list-group-item list-group-item-action">
+        Theme gallery — live previews of built-in + community themes
+      </a>
+      <a href="THEMES.md" class="list-group-item list-group-item-action">
+        THEMES.md — authoring a one-file community theme
+      </a>
+      <a href="acceptance.html" class="list-group-item list-group-item-action">
+        Acceptance — bare Bootstrap page, two imports
+      </a>
+      <a href="manifest.json" class="list-group-item list-group-item-action">
+        manifest.json — machine-readable component/token catalog
+      </a>
+      <a href="AGENTS.md" class="list-group-item list-group-item-action">
+        AGENTS.md — naming rules, theme guide, token table
+      </a>
+      <a href="design-plan.md" class="list-group-item list-group-item-action">
+        design-plan.md — the working plan
+      </a>
+    </div>
+
+    <p class="text-muted small mb-0">
+      Badge colors: <span class="badge text-bg-primary">Bootstrap-styled</span>
+      <span class="badge text-bg-warning">Phosphor-only</span> ·
+      serve with <code>npx serve docs</code>
+    </p>
   </div>
 </body>
 </html>

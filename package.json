@@ -18,7 +18,8 @@
     "./toasts": "./dist/components/toasts.css",
     "./tables": "./dist/components/tables.css",
     "./badges": "./dist/components/badges.css",
-    "./navs": "./dist/components/navs.css"
+    "./navs": "./dist/components/navs.css",
+    "./calendar": "./dist/components/calendar.css"
   },
   "files": [
     "dist"
