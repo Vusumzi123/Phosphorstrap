@@ -1,23 +1,28 @@
 <h1 class="mb-1">Community themes</h1>
 <p class="text-muted mb-4">
-  A community theme is <strong>one CSS file</strong> overriding the
-  <code>--ph-*</code> tokens — no component file changes. The shipped example,
-  <code>themes/green-crt.css</code>, is loaded in this app as a real drop-in
-  (after <code>phosphorstrap.css</code> in <code>angular.json</code>) and activated
-  with <code>data-theme="green-crt"</code>.
+  A community theme is <strong>one CSS file</strong> loaded after
+  <code>phosphorstrap.css</code>. <code>themes/green-crt.css</code> is
+  token-only; <code>themes/nibble.css</code> is an <strong>extended</strong>
+  theme that adds scoped component polish for a sans UI and flat controls.
+  Both are loaded in this app as real drop-ins and activated with
+  <code>data-theme</code>.
 </p>
 
 <div class="ph-panel mb-4">
   <div class="ph-panel__header">Try it</div>
   <div class="ph-panel__body">
-    <div class="btn-group flex-wrap mb-3" role="group" aria-label="Theme switcher">
+    <div class="d-flex flex-wrap gap-2 mb-3" role="group" aria-label="Theme switcher">
       <button type="button" class="btn" [class.btn-primary]="isActive('dark')" [class.btn-outline-primary]="!isActive('dark')" (click)="activate('dark')">dark (built-in)</button>
       <button type="button" class="btn" [class.btn-primary]="isActive('light')" [class.btn-outline-primary]="!isActive('light')" (click)="activate('light')">light (built-in)</button>
       <button type="button" class="btn" [class.btn-primary]="isActive('green-crt')" [class.btn-outline-primary]="!isActive('green-crt')" (click)="activate('green-crt')">green-crt (community)</button>
+      <button type="button" class="btn" [class.btn-primary]="isActive('nibble')" [class.btn-outline-primary]="!isActive('nibble')" (click)="activate('nibble')">nibble (extended)</button>
+      <button type="button" class="btn" [class.btn-primary]="isActive('nibble-light')" [class.btn-outline-primary]="!isActive('nibble-light')" (click)="activate('nibble-light')">nibble-light (extended)</button>
     </div>
     <p class="text-muted small mb-0">
       The whole app — Bootstrap elements included — recolors live. The header
-      switcher does the same from any route.
+      switcher does the same from any route. Nibble also accepts
+      <code>data-accent="lime|amber|cyan|violet|rose"</code> and
+      <code>data-density="compact"</code>; try them from the browser console.
     </p>
   </div>
 </div>
@@ -28,7 +33,8 @@
     <pre class="mb-0"><code>"styles": [
   "node_modules/bootstrap/dist/css/bootstrap.min.css",
   "node_modules/@vusux/phosphorstrap/dist/phosphorstrap.css",
-  "../themes/green-crt.css"          // import AFTER phosphorstrap.css
+  "../themes/green-crt.css",         // import AFTER phosphorstrap.css
+  "../themes/nibble.css"
 ]</code></pre>
   </div>
 </div>
@@ -53,9 +59,11 @@
   /* … */
 {{ '}' }}</code></pre>
     <p class="mb-0 text-muted small">
-      Rules: <code>--ph-*</code> tokens only, never <code>--bs-*</code> or
-      component selectors; every color ships an <code>--ph-*-rgb</code>
-      companion. Full guide: <code>docs/THEMES.md</code> · live gallery:
+      Standard themes: <code>--ph-*</code> tokens only, never
+      <code>--bs-*</code> or component selectors; every color ships an
+      <code>--ph-*-rgb</code> companion. Extended themes (like
+      <code>nibble</code>) may add component rules scoped to their theme id.
+      Full guide: <code>docs/THEMES.md</code> · live gallery:
       <code>docs/gallery.html</code> (static playground).
     </p>
   </div>

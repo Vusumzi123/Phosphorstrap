@@ -1,8 +1,9 @@
 # Phosphorstrap — Angular showcase
 
 Angular 22 integration app for [`@vusux/phosphorstrap`](../package.json) — every
-component and variant, both built-in themes plus the `green-crt` community
-drop-in, a live theme switcher, per-component routes, and a token playground
+component and variant, both built-in themes plus the `green-crt` and
+`nibble` community drop-ins, a live theme switcher, per-component routes, and a
+token playground
 (live `--ph-*` overrides). Doubles as the Phosphorstrap integration test and a
 screenshot target.
 
@@ -24,14 +25,15 @@ npm run build        # production build → dist/showcase/browser
 | `/tables` `/badges` | themed tables and badges |
 | `/calendar` | `ph-calendar` — interactive (Angular signals) + static state grid |
 | `/playground` | live `--ph-*` overrides (colors, radii, base size) + computed readout |
-| `/themes` | community-theme drop-in example (`themes/green-crt.css`) |
+| `/themes` | community-theme drop-in examples (`themes/green-crt.css`, `themes/nibble.css`) |
 
 ## Theme switching
 
 The header switcher sets `data-theme` on `<html>` — `dark`, `light`
-(built-in), `green-crt` (community drop-in loaded after `phosphorstrap.css`).
-No second stylesheet, no JS theming: tokens and the Bootstrap bridge follow
-the attribute.
+(built-in), `green-crt` (token-only drop-in), and `nibble` / `nibble-light`
+(extended drop-ins) — all loaded after `phosphorstrap.css`. No JS theming:
+tokens and the Bootstrap bridge follow the attribute; Nibble also reads
+`data-accent` and `data-density`.
 
 ## Wiring (angular.json)
 
@@ -40,6 +42,7 @@ the attribute.
   "node_modules/bootstrap/dist/css/bootstrap.min.css",
   "node_modules/@vusux/phosphorstrap/dist/phosphorstrap.css",
   "../themes/green-crt.css",
+  "../themes/nibble.css",
   "src/styles.css"
 ],
 "scripts": [

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../dist/phosphorstrap.css">
   <!-- community theme stylesheets: import order after phosphorstrap.css is the point -->
   <link rel="stylesheet" href="../themes/green-crt.css" data-community-theme>
+  <link rel="stylesheet" href="../themes/nibble.css" data-community-theme>
 </head>
 <body>
   <nav class="navbar navbar-expand bg-body-tertiary border-bottom">
@@ -34,14 +35,18 @@
 
     <h1 class="mb-1">Theme gallery</h1>
     <p class="lead text-muted mb-4">
-      A community theme is one CSS file overriding <code>--ph-*</code> tokens.
-      Pick one — the whole page, Bootstrap included, recolors live.
+      A community theme is one CSS file of <code>--ph-*</code> token
+      overrides; extended themes add scoped component polish. Pick one — the
+      whole page, Bootstrap included, recolors live.
     </p>
 
     <div class="ph-panel mb-4">
       <header class="ph-panel__header">Activate a theme</header>
       <div class="ph-panel__body">
-        <div class="btn-group flex-wrap mb-3" role="group" aria-label="Theme switcher" id="theme-switcher"></div>
+        <div class="d-flex flex-wrap gap-2 mb-3" role="group" aria-label="Theme switcher" id="theme-switcher"></div>
+        <div class="d-flex flex-wrap gap-2 align-items-center mb-3" id="accent-switcher" hidden>
+          <span class="ph-label">accent</span>
+        </div>
         <p class="text-muted small mb-0" id="theme-desc"></p>
       </div>
     </div>
@@ -264,11 +269,35 @@
     const THEMES = [
       { id: "dark",  label: "dark (built-in)",  desc: "Deep warm charcoal with phosphor-amber highlights — src/themes/dark.css." },
       { id: "light", label: "light (built-in)", desc: "Warm parchment sepia — the :root default in src/tokens.css." },
-      { id: "green-crt", label: "green-crt (community)", desc: "Classic P1 phosphor green — themes/green-crt.css, the shipped example theme." }
+      { id: "green-crt", label: "green-crt (community)", desc: "Classic P1 phosphor green — themes/green-crt.css, the shipped token-only example." },
+      { id: "nibble", label: "nibble (extended)", desc: "Modern minimal near-black with lime, sans UI and mono labels — themes/nibble.css." },
+      { id: "nibble-light", label: "nibble-light (extended)", desc: "Paper-white Nibble with deep accents — themes/nibble.css." }
     ];
 
+    const ACCENTS = ["lime", "amber", "cyan", "violet", "rose"];
+
     const switcher = document.getElementById("theme-switcher");
+    const accentSwitcher = document.getElementById("accent-switcher");
     const desc = document.getElementById("theme-desc");
+
+    ACCENTS.forEach((accent) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.dataset.accent = accent;
+      b.className = "btn btn-sm btn-outline-primary";
+      b.textContent = accent;
+      b.addEventListener("click", () => applyAccent(accent));
+      accentSwitcher.appendChild(b);
+    });
+
+    function applyAccent(accent) {
+      document.documentElement.dataset.accent = accent;
+      accentSwitcher.querySelectorAll("button").forEach(b => {
+        const on = b.dataset.accent === accent;
+        b.classList.toggle("btn-primary", on);
+        b.classList.toggle("btn-outline-primary", !on);
+      });
+    }
 
     function applyTheme(id) {
       document.documentElement.dataset.theme = id;
@@ -279,6 +308,16 @@
         b.classList.toggle("btn-primary", on);
         b.classList.toggle("btn-outline-primary", !on);
       });
+
+      const isNibble = id.startsWith("nibble");
+      accentSwitcher.hidden = !isNibble;
+      if (isNibble) {
+        const current = document.documentElement.dataset.accent;
+        applyAccent(ACCENTS.includes(current) ? current : "lime");
+      } else {
+        delete document.documentElement.dataset.accent;
+      }
+
       history.replaceState(null, "", "#" + id);
     }
 

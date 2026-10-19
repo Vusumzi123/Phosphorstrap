@@ -8,12 +8,27 @@
   },
   "install": {
     "css": "import \"bootstrap/dist/css/bootstrap.min.css\";\nimport \"@vusux/phosphorstrap\";",
-    "theme": "Set data-theme=\"dark\" or data-theme=\"light\" on <html>. Default is light; no attribute also renders light."
+    "theme": "Set data-theme=\"dark\" or data-theme=\"light\" on <html>. Default is light; no attribute also renders light. Community themes add ids such as data-theme=\"green-crt\", \"nibble\" and \"nibble-light\" after importing their stylesheet."
+  },
+  "themes": {
+    "builtin": ["dark", "light"],
+    "community": [
+      { "id": "green-crt", "file": "themes/green-crt.css", "kind": "token-only" },
+      {
+        "id": "nibble",
+        "file": "dist/themes/nibble.css",
+        "kind": "extended",
+        "variants": ["nibble", "nibble-light"],
+        "accents": ["lime", "amber", "cyan", "violet", "rose"],
+        "density": ["comfortable", "compact"]
+      }
+    ]
   },
   "exports": {
     ".": "./dist/phosphorstrap.css",
     "./tokens": "./dist/tokens.css",
     "./dark": "./dist/themes/dark.css",
+    "./themes/nibble": "./dist/themes/nibble.css",
     "./bootstrap-bridge": "./dist/bootstrap-bridge.css",
     "./buttons": "./dist/components/buttons.css",
     "./forms": "./dist/components/forms.css",

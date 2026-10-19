@@ -66,6 +66,12 @@ async function main() {
     await writeDist(rel, await readSrc(rel));
   }
 
+  // shipped community theme(s)
+  await writeDist(
+    "themes/nibble.css",
+    await readFile(path.join(root, "themes/nibble.css"), "utf8"),
+  );
+
   console.log("done.");
 }
 

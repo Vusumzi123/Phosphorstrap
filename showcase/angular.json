@@ -53,6 +53,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/@vusux/phosphorstrap/dist/phosphorstrap.css",
               "../themes/green-crt.css",
+              "../themes/nibble.css",
               "src/styles.css"
             ],
             "scripts": [

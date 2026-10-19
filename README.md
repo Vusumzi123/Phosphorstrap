@@ -14,8 +14,8 @@ Any Bootstrap app becomes a Phosphorstrap app by importing two CSS files and set
 
 Phase 7 — Angular showcase: `showcase/` (Angular 22, modeled on
 My-first-app) — every component + variant on per-component routes, both
-built-in themes + the `green-crt` drop-in, live theme switcher, token
-playground (live `--ph-*` overrides); doubles as the integration test and a
+built-in themes + the `green-crt` and `nibble` drop-ins, live theme
+switcher, token playground (live `--ph-*` overrides); doubles as the integration test and a
 screenshot target (`cd showcase && npm start`). Prior: Phase 6 — v1.1
 calendar: `ph-calendar` (date field + month-grid popover,
 keyboard-accessible, no Bootstrap datepicker) on the token system; Phase 4
@@ -83,11 +83,38 @@ document.documentElement.dataset.theme =
 
 ## Community themes
 
-A theme is one CSS file overriding the `--ph-*` tokens — copy
-[`themes/TEMPLATE.css`](themes/TEMPLATE.css), rename the `data-theme` id,
-load it after `phosphorstrap.css`. Guide: [`docs/THEMES.md`](docs/THEMES.md) ·
-live previews: [`docs/gallery.html`](docs/gallery.html) (shipped example:
-[`themes/green-crt.css`](themes/green-crt.css)).
+A theme is one CSS file loaded after `phosphorstrap.css`. Standard themes
+override `--ph-*` tokens only — copy
+[`themes/TEMPLATE.css`](themes/TEMPLATE.css), rename the `data-theme` id;
+extended themes may add component polish scoped to their own id. Guide:
+[`docs/THEMES.md`](docs/THEMES.md) ·
+live previews: [`docs/gallery.html`](docs/gallery.html) (shipped examples:
+[`themes/green-crt.css`](themes/green-crt.css) and the extended
+[`themes/nibble.css`](themes/nibble.css)).
+
+### Nibble (extended theme)
+
+Modern-minimal: near-black or paper canvas, one luminous accent, sans UI with
+mono labels, soft borders. It is token-first, with a small scoped component
+polish section for typography and flat controls.
+
+```html
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="phosphorstrap.css">
+<link rel="stylesheet" href="themes/nibble.css">
+<html data-theme="nibble">                  <!-- dark, lime -->
+<html data-theme="nibble-light">            <!-- light, lime -->
+<html data-theme="nibble" data-accent="cyan"> <!-- dark, cyan -->
+```
+
+Accents: `lime` (default), `amber`, `cyan`, `violet`, `rose`. Optional
+`data-density="compact"` tightens controls and spacing. From npm:
+
+```css
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "@vusux/phosphorstrap";
+@import "@vusux/phosphorstrap/themes/nibble";
+```
 
 ## Build
 
@@ -102,6 +129,7 @@ npm run build   # node scripts/build.mjs → dist/
 - `src/bootstrap-bridge.css` — `--bs-*` → `--ph-*` mapping
 - `src/components/*.css` — one module per component (buttons, forms, alerts, cards, panels, modals, toasts, tables, badges, navs, calendar)
 - `src/utilities.css` — Phosphorstrap-only helpers (`.ph-glow`, `.ph-label`, …)
+- `themes/*.css` — community themes; `nibble.css` is also copied to `dist/themes/`
 - `docs/*.html` — static playground, one page per component (`npx serve docs`)
 
 ## Package exports
@@ -111,6 +139,7 @@ npm run build   # node scripts/build.mjs → dist/
   ".": "./dist/phosphorstrap.css",
   "./tokens": "./dist/tokens.css",
   "./dark": "./dist/themes/dark.css",
+  "./themes/nibble": "./dist/themes/nibble.css",
   "./bootstrap-bridge": "./dist/bootstrap-bridge.css",
   "./buttons": "./dist/components/buttons.css",
   "./forms": "./dist/components/forms.css",

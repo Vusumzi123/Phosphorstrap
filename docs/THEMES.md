@@ -7,7 +7,8 @@ below *is* the contract.
 Reference files:
 
 - [`../themes/TEMPLATE.css`](../themes/TEMPLATE.css) — starting point, every token with defaults
-- [`../themes/green-crt.css`](../themes/green-crt.css) — worked example (shipped, previewable in the gallery)
+- [`../themes/green-crt.css`](../themes/green-crt.css) — worked token-only example (shipped, previewable in the gallery)
+- [`../themes/nibble.css`](../themes/nibble.css) — extended theme: tokens + scoped component polish, light/dark and accent variants
 - [`gallery.html`](gallery.html) — live previews of every bundled theme
 
 ## Recipe
@@ -56,16 +57,52 @@ Reference files:
 
 ## Rules
 
-- **Do** touch only `--ph-*` tokens inside your theme selector.
+- **Do** start with `--ph-*` tokens inside your theme selector.
 - **Don't** override `--bs-*` variables — `bootstrap-bridge.css` already maps
   `--bs-* → --ph-*`, which is why one file recolors every Bootstrap component.
-- **Don't** write component selectors (`.btn`, `.ph-panel …`) in a theme.
+- **Don't** write component selectors in a standard theme (`.btn`,
+  `.ph-panel …`). If you need them, ship an **extended theme** (below).
 - **Don't** ship a color literal where a token exists, in app CSS either.
-- **Do** keep `--ph-font-mono` the UI default — Phosphorstrap is mono in light,
-  dark, and every community theme.
+- **Do** keep `--ph-font-mono` the UI default in standard themes —
+  Phosphorstrap is mono in light, dark, and every token-only theme. Extended
+  themes may change the UI font inside their own scope.
 - **Do** keep contrast honest: `--ph-text` on `--ph-bg` ≥ 4.5:1 for body copy;
   `--ph-on-accent`-style usage (button labels) picks light or dark per accent
   brightness.
+
+## Extended themes
+
+An extended theme does everything a standard theme does, then adds component
+polish the token layer cannot express: a different UI font, flat buttons,
+softer focus rings, or ink colors on solid fills. `themes/nibble.css` is the
+reference.
+
+Rules for the extra section:
+
+- **Scope every component selector to the theme id.** Use
+  `[data-theme^="nibble"] .btn`, never a bare `.btn`. An unscoped rule leaks
+  into every other theme.
+- **Tokens stay the base.** Component rules should reference `--ph-*` values,
+  not repeat color literals.
+- **Keep labels mono.** `.ph-label`, code, kbd and tabular numbers stay on
+  `--ph-font-mono` even when the body switches to sans.
+- **Document the variants.** `nibble` ships `nibble-light` plus an optional
+  `data-accent` attribute; keep new theme-local attributes listed next to the
+  activation snippet.
+- **Re-run the gallery** after changing a component rule — the gallery loads
+  Bootstrap JS/CSS and exercises the whole component pass.
+
+```html
+<link rel="stylesheet" href="phosphorstrap.css">
+<link rel="stylesheet" href="themes/nibble.css">
+
+<html data-theme="nibble">                    <!-- dark, lime -->
+<html data-theme="nibble-light">              <!-- light, lime -->
+<html data-theme="nibble" data-accent="cyan"> <!-- dark, cyan -->
+<html data-theme="nibble-light" data-density="compact">
+```
+
+Accents: `lime` (default), `amber`, `cyan`, `violet`, `rose`.
 
 ## Stability guarantee
 

@@ -132,6 +132,13 @@ Then `data-theme="mytheme"` on `<html>`. The token names above are the
 schema — the set in the token table is stable; new tokens may be added
 minor-version, never renamed within `0.x`'s contract for themes.
 
+If a theme also needs component polish (sans UI, flat buttons, softer focus),
+it is an **extended theme**: scope every extra selector to its own id
+(`[data-theme^="mytheme"] .btn`) and keep tokens as the base.
+[`themes/nibble.css`](../themes/nibble.css) is the reference, shipping
+`nibble` (dark), `nibble-light`, `data-accent` variants and optional
+`data-density="compact"`.
+
 Full guide with the complete token template and gallery checklist:
 [`THEMES.md`](THEMES.md) · starting file: `themes/TEMPLATE.css` ·
 live check: [`gallery.html`](gallery.html).
@@ -143,7 +150,7 @@ live check: [`gallery.html`](gallery.html).
 - Per-area entries exist for tree-shaking: `@vusux/phosphorstrap/buttons`,
   `/forms`, `/alerts`, `/cards`, `/panels`, `/modals`, `/toasts`,
   `/tables`, `/badges`, `/navs`, `/calendar`; also `/tokens`, `/dark`,
-  `/bootstrap-bridge`.
+  `/bootstrap-bridge`, `/themes/nibble`.
 - Bootstrap `^5.3` is a **peer dependency** — never bundled.
 
 ## Gotchas
@@ -156,8 +163,9 @@ live check: [`gallery.html`](gallery.html).
    one place where Bootstrap's class takes a Phosphorstrap suffix.
 4. **JS-owned components** (modal, toast, dropdown, collapse, tooltip) need
    `bootstrap.bundle.min.js`; Phosphorstrap only themes them.
-5. Fonts are theme-invariant: both themes use `--ph-font-mono` by default —
-   a terminal UI is mono in light *and* dark.
+5. Standard themes keep `--ph-font-mono` as the UI default — a terminal UI is
+   mono in light *and* dark. Extended themes (like `nibble`) may switch the
+   UI to sans inside their own scoped rules; labels and code stay mono.
 6. **`ph-calendar` is CSS only** — it paints a date field + month-grid
    popover; opening it, month math and key handling are your JS (Bootstrap
    ships no datepicker). Copy the structure from
